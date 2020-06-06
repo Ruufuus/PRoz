@@ -2,7 +2,7 @@
 #define CONSTANTS
 
 #include <iostream>
-#include <time.h>
+#include <unistd.h>
 #include <mpi.h>
 #include <stdlib.h>
 

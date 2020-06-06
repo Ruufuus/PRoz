@@ -18,7 +18,7 @@ class Employer {
     void process_lifetime(){
         bool is_alive = true;
         while(is_alive){
-            sleep(rand()%5+1);
+            sleep((rand()%5+1)*1000000);
             broadcast_mission();
         }
     }
