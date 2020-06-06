@@ -1,3 +1,4 @@
+#include "constants.h"
 struct specialist {
 	enum type { TAIL, BODY, HEAD };
 	int expert_needed;
