@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include <mpi.h>
+#include <time.h>
+#include <stdlib.h>
+
 #include "specialist.h"
 
 #define DEBUG true
