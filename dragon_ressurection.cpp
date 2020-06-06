@@ -18,5 +18,4 @@ int main(int argc, char *argv[]){
     else
     specialist_1__.wait_for_mission();
 
-    return 0;
 }
