@@ -34,3 +34,5 @@
 
 # Visual studio	
 *.vs
+
+test.cpp

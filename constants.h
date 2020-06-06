@@ -2,8 +2,8 @@
 #define CONSTANTS
 
 #include <iostream>
-#include <mpi.h>
 #include <time.h>
+#include <mpi.h>
 #include <stdlib.h>
 
 #include "specialist.h"
