@@ -29,7 +29,7 @@ class Specialist_1: public Thread{
                 }
                 else if(status.MPI_TAG == MREQ1){
                     if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d!\n",process_id,status.MPI_SOURCE);
-                    if((this->data.lamport_clock_value==message[0] && this->process_id<message[1]) or (this->data.lamport_clock_value<message[0])){
+                    if((this->data.lamport_clock_value==message && this->process_id<status.MPI_SOURCE) or (this->data.lamport_clock_value<message)){
                         if(DEBUG)printf("Proces %d wysyla wiadomosc ack do id:%d!\n",process_id,status.MPI_SOURCE);
                         MPI_Send(NULL, 0, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
                         this->data.lamport_clock_value+=1;
