@@ -16,7 +16,7 @@ class Employer: public Thread{
     void process_lifetime(){
         bool is_alive = true;
         while(is_alive){
-            sleep(rand()%5+1);
+            sleep(rand()%5+10);
             broadcast_mission();
         }
     }
