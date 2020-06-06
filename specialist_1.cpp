@@ -1,16 +1,18 @@
 #include "constants.h"
-class Specialist_1{
+class Specialist_1: public thread{
     private:
         specialist data;
-        int process_id; 
     public:
         Specialist_1(specialist data){
-            MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
             this->data = data;
         }
         void wait_for_mission(){
             bool is_mission = false;
-            int message;
+            int message = MACK1;
+            for(int i = 0; i<process_count; i++){
+                if(process_id == i) continue;
+                MPI_Send(&message, 1, MPI_INT, i, MISSION ,MPI_COMM_WORLD);
+            }
             while(!is_mission){
                 MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, NULL);
                 if(DEBUG)printf("Proces %d otrzymal wiadomosc o tresci %d!\n",process_id,message);

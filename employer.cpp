@@ -1,12 +1,7 @@
 #include "constants.h"
-class Employer {
-    private:
-        int process_id; 
-        int process_count;
+class Employer: public thread{
     public:
     Employer(){
-        MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
-        MPI_Comm_size(MPI_COMM_WORLD, &process_count);
         srand(time(NULL));
     }
 

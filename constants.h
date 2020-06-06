@@ -6,6 +6,7 @@
 #include <mpi.h>
 #include <stdlib.h>
 
+#include "thread.cpp"
 #include "specialist.h"
 
 #define DEBUG true
