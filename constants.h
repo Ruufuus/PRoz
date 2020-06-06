@@ -1,6 +1,8 @@
 #ifndef CONSTANTS
 #define CONSTANTS
 
+#define DEBUG true
+
 #define MISSION 100
 
 #define MREQ1 101
