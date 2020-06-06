@@ -8,6 +8,8 @@ int main(int argc, char *argv[]){
     Employer employer;
     specialist sp;
     sp.mission_unassigned = 0;
+    sp.expert_count = 3;
+    sp.lamport_clock_value = 0;
     Specialist_1 specialist_1__(sp);
     int process_id; 
     MPI_Comm_rank(MPI_COMM_WORLD, &process_id);

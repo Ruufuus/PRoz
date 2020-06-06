@@ -38,7 +38,7 @@ class Specialist_1: public Thread{
                 }else if(status.MPI_TAG == MACK1){
                     ack_count+=1;
                 }
-                if(ack_count == this->data.expert_count){
+                if(ack_count == this->data.expert_count-1){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=2;
                     for(int i = 0; i<process_count; i++){
