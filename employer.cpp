@@ -1,5 +1,5 @@
 #include "constants.h"
-class Employer: public thread{
+class Employer: public Thread{
     public:
     Employer(){
         srand(time(NULL));
@@ -7,10 +7,9 @@ class Employer: public thread{
 
     void broadcast_mission(){
         if(DEBUG)printf("Wyslano informacje o misji z %d procesu do wszystkich procesow!\n",process_id);
-        int message = MISSION;
         for(int i = 0; i<process_count; i++){
             if(process_id == i) continue;
-            MPI_Send(&message, 1, MPI_INT, i, MISSION ,MPI_COMM_WORLD);
+            MPI_Send(NULL, 0, MPI_INT, i, MISSION ,MPI_COMM_WORLD);
         }
     }
 
