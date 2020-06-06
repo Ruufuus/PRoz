@@ -4,8 +4,8 @@ class Employer {
         int process_id; 
 
     Employer(){
-        process_id = MPI_COMM_RANK;
-        srand(time(NULL))
+        MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
+        srand(time(NULL));
     }
 
     void broadcast_mission(){
