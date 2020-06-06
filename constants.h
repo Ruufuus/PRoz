@@ -1,6 +1,10 @@
 #ifndef CONSTANTS
 #define CONSTANTS
 
+#include <iostream>
+#include <mpi.h>
+#include "specialist.h"
+
 #define DEBUG true
 
 #define MISSION 100
