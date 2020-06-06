@@ -12,8 +12,8 @@ class Specialist_1{
             bool is_mission = false;
             int message;
             while(!is_mission){
-                MPI_Gather(NULL, 0, MPI_BYTE, &message, 1, MPI_INT, process_id, MPI_COMM_WORLD);
-                if(DEBUG)printf("Otrzymano wiadomosc o tresci %d!\n",message);
+                MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, NULL);
+                if(DEBUG)printf("Proces %d otrzymal wiadomosc o tresci %d!\n",process_id,message);
                 if(message == MISSION){
                     this->data.mission_unassigned+=1;
                 }

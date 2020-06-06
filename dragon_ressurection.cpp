@@ -1,20 +1,27 @@
-#include<iostream>
 #include "constants.h"
-#include "employer.cpp"
-#include "specialist_1.cpp"
-int main(int argc, char *argv[]){
+class Specialist_1{
+    private:
+        specialist data;
+        int process_id; 
+    public:
+        Specialist_1(specialist data){
+            MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
+            this->data = data;
+        }
+        void wait_for_mission(){
+            bool is_mission = false;
+            int message;
+            while(!is_mission){
+                MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, NULL);
+                if(DEBUG)printf("Proces %d otrzymal wiadomosc o tresci %d!\n",process_id,message);
+                if(message == MISSION){
+                    this->data.mission_unassigned+=1;
+                }
+                else if(message == MTAK1){
+                    this->data.mission_unassigned-=1;
+                }
+            }
+        }
 
-    MPI_Init(&argc,&argv);
-    Employer employer;
-    specialist sp;
-    sp.mission_unassigned = 0;
-    Specialist_1 specialist_1__(sp);
-    int process_id; 
-    MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
-    if(process_id == 1)
-    employer.process_lifetime();
-    else
-    specialist_1__.wait_for_mission();
-
-    return 0;
-}
+    
+};
