@@ -23,7 +23,7 @@ class Specialist_3: public Thread {
             int ack_count = 0;
 
             while(!is_S3REQ){
-                if(ack_count == this->data.expert_count - this->data.mission_unassigned){
+                if(ack_count >= this->data.expert_count - this->data.mission_unassigned){
                     message = this->data.lamport_clock_value;
                     if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MTAK3!\n",this->process_id);
                     for(int i = 0; i<process_count; i++){
@@ -73,7 +73,7 @@ class Specialist_3: public Thread {
             int message = this->data.lamport_clock_value;
 
             for(int i = 0; i < 2; i++){
-                MPI_Send(&message, 1, MPI_INT, this->data.team_ids[i], TREADY, MPI_COMM_WORLD);
+                MPI_Send(&message, 1, MPI_INT, this->data.team_ids[i], RREADY, MPI_COMM_WORLD);
             }
 
             int mess_buf[4];
