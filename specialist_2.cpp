@@ -82,7 +82,7 @@ class Specialist_2: public Thread{
         int message;
         int message_buffor[4];
         while(is_team_ready){
-            MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == S3IFREQ){
                 if(DEBUG)printf("[SPEC_2_WFT]\t%d\tWysyla S3REQ do %d!\n",this->process_id,status.MPI_SOURCE);
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;

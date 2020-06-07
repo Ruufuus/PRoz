@@ -7,24 +7,28 @@
 int main(int argc, char *argv[]){
 
     MPI_Init(&argc,&argv);
-    Employer employer;
     specialist sp;
     sp.mission_unassigned = 0;
     sp.expert_count = 1;
     sp.lamport_clock_value = 0;
-    Specialist_1 specialist_1__(sp);
-    Specialist_2 specialist_2__(sp);
-    Specialist_3 specialist_3__(sp);
     int process_id; 
     MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
-    if(process_id == 0)
+    if(process_id == 0){
+    Employer employer;
     employer.process_lifetime();
-    else if(process_id == 1)
+    }
+    else if(process_id == 1){
+    Specialist_1 specialist_1__(sp);
     specialist_1__.lifetime();
-    else if(process_id == 2)
+    }
+    else if(process_id == 2){
+    Specialist_2 specialist_2__(sp);
     specialist_2__.lifetime();
-    else if(process_id == 3)
+    }
+    else if(process_id == 3){
+    Specialist_3 specialist_3__(sp);
     specialist_3__.lifetime();
+    }
 
 
 
