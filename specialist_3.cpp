@@ -20,7 +20,6 @@ class Specialist_3: public Thread {
                 if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3 do %d!\n",this->process_id, i);
                 MPI_Send( &message, 1, MPI_INT, i, MREQ3, MPI_COMM_WORLD);
             }
-
             int ack_count = 0;
 
             while(!is_S3REQ){
