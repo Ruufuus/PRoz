@@ -103,7 +103,7 @@ class Specialist_3: public Thread {
                     case MREQ3 :
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         message = this->data.lamport_clock_value;
-                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MPI_COMM_WORLD);
+                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         break;
                     case S3REQ :
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
