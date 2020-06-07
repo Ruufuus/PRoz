@@ -41,9 +41,7 @@ class Specialist_3: public Thread {
                             this->data.lamport_clock_value += 1;
                             message = this->data.lamport_clock_value;
                             MPI_Send(&message, 1, MPI_INT, i, MACK3, MPI_COMM_WORLD);
-                        } else {
-                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
-                        }
+                        } 
                         break;
                     case S3REQ :
                         this->data.mission_unassigned += 1;
@@ -52,8 +50,9 @@ class Specialist_3: public Thread {
                         this->data.mission_unassigned -= 1;
                     default:
                         break;
-
                 }
+                
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
             }
         }
 
