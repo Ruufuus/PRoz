@@ -89,9 +89,14 @@ class Specialist_3: public Thread {
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         rready_count++;
                         if(rready_count == 2){
-                            if(DEBUG)printf("[RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
+                            if(DEBUG)printf("[SPEC3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
                             sleep(5);
-                            if(DEBUG)printf("[RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                            if(DEBUG)printf("[SPEC3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                            message = ++this->data.lamport_clock_value;
+                            for(int i = 0; i<process_count; i++){
+                                if(process_id == i) continue;
+                                MPI_Send( &message, 1, MPI_INT, i, S3IFREQ, MPI_COMM_WORLD);
+                            }
                             team_ready = true;
                         }
                         break;
