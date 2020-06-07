@@ -189,33 +189,33 @@ class Specialist_1: public Thread{
             while(!is_team_ready){
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == RREADY){
-                    if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     team_ready_counter+=1;
                     if(team_ready_counter == 2)
                     {
-                        if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
+                        if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
                         sleep(5);
-                        if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                        if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                         break;
                         }
                 }
                 else if(status.MPI_TAG == MREQ1){
-                    if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
                     MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
                 }else if(status.MPI_TAG == TREQ){
-                    if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tWysyla TACK do %d!\n",this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tWysyla TACK do %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
                     MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
                 }else if(status.MPI_TAG == MISSION){
-                    if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tOtzymuje MISSION od %d!\n",this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tOtzymuje MISSION od %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.mission_unassigned+=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 }else if(status.MPI_TAG == MTAK1){
-                    if(DEBUG)printf("[SPEC1_RESSURECT]\t%d\tOtrzymuje MTAK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tOtrzymuje MTAK1 do %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 }
