@@ -2,7 +2,7 @@
 
 class Specialist_3: public Thread {
     private:
-     specialist data;
+        specialist data;
     
     public:
         Specialist_3(specialist data){
@@ -112,7 +112,13 @@ class Specialist_3: public Thread {
                         break;
                 }
             }
-
-            
         }
+
+        void lifetime(){
+            wait_for_S3REQ();
+            report_team_ready();
+            prepare_for_ressurection();
+        }
+
+
 }
