@@ -52,7 +52,6 @@ class Specialist_3: public Thread {
                         break;
                     case MTAK3 :
                         this->data.mission_unassigned--;
-                    default:
                         break;
                 }
 
@@ -80,7 +79,7 @@ class Specialist_3: public Thread {
             int mess_buf[4];
             int rready_count = 0;
             bool team_ready = false;
-
+            MPI_Status status;
             while(!team_ready){
                 MPI_Recv(&mess_buf, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 
@@ -112,8 +111,6 @@ class Specialist_3: public Thread {
                     case MTAK3 :
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         this->data.mission_unassigned--;
-                        break;
-                    case default:
                         break;
                 }
             }
