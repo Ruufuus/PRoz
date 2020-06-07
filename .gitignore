@@ -35,4 +35,7 @@
 # Visual studio	
 *.vs
 
+#Visual studio code
+*.vscode
+
 test.cpp
