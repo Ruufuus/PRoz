@@ -52,6 +52,7 @@ class Specialist_3: public Thread {
                         this->data.mission_unassigned++;
                         this->data.team_ids[0] = message_buffor[1];
                         this->data.team_ids[1] = message_buffor[2];
+                        this->data.team_ids[2] = this->process_id;
                         is_S3REQ = true;
                         break;
                     case MTAK3 :
