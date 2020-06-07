@@ -123,4 +123,4 @@ class Specialist_3: public Thread {
         }
 
 
-}
+};
