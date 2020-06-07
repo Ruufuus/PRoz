@@ -17,6 +17,7 @@ class Specialist_3: public Thread {
             
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
+                if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3 do %d!\n",this->process_id, i);
                 MPI_Send( &message, 1, MPI_INT, i, MREQ3, MPI_COMM_WORLD);
             }
 
@@ -41,16 +42,19 @@ class Specialist_3: public Thread {
                         (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                             this->data.lamport_clock_value++;
                             message = this->data.lamport_clock_value;
+                            if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MACK3 do %d!\n",this->process_id, status.MPI_SOURCE);
                             MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         }
                         break;
                     case S3REQ :
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral S3REQ!\n",this->process_id);
                         this->data.mission_unassigned++;
                         this->data.team_ids[0] = message_buffor[1];
                         this->data.team_ids[1] = message_buffor[2];
                         is_S3REQ = true;
                         break;
                     case MTAK3 :
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MRAK3!\n",this->process_id);
                         this->data.mission_unassigned--;
                         break;
                 }
@@ -64,6 +68,7 @@ class Specialist_3: public Thread {
             memcpy(&(team_mess[1]),this->data.team_ids, sizeof(int)*3);
 
             for(int i = 0; i < 2; i++){
+                if(DEBUG)printf("[SPEC_3_RTR]\t%d\tWysyla TREADY do %d!\n",this->process_id, this->data.team_ids[i]);
                 MPI_Send(&team_mess, 4, MPI_INT, this->data.team_ids[i], TREADY, MPI_COMM_WORLD);
             }
         }
@@ -73,6 +78,7 @@ class Specialist_3: public Thread {
             int message = this->data.lamport_clock_value;
 
             for(int i = 0; i < 2; i++){
+                if(DEBUG)printf("[SPEC_3_PFR]\t%d\tWysyla RREADY do %d!\n",this->process_id, this->data.team_ids[i]);
                 MPI_Send(&message, 1, MPI_INT, this->data.team_ids[i], RREADY, MPI_COMM_WORLD);
             }
 
