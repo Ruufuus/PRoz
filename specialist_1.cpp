@@ -91,7 +91,6 @@ class Specialist_1: public Thread{
             else if(status.MPI_TAG == TREADY){
                 if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d!\n",this->process_id, status.MPI_SOURCE);
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
-                printf("%d %d %d\n",message_buffor[1],message_buffor[2],message_buffor[3]);
                 memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
                 break;
             }else if(status.MPI_TAG == MREQ1){
