@@ -18,7 +18,7 @@ class Specialist_1: public Thread{
             }
             int ack_count = 0;
             while(!is_mission){
-                if(ack_count == this->data.expert_count-1 && this->data.mission_unassigned>0){
+                if(ack_count == this->data.expert_count-this->data.mission_unassigned){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
@@ -26,12 +26,6 @@ class Specialist_1: public Thread{
                     for(int i = 0; i<process_count; i++){
                         if(process_id == i) continue;
                         MPI_Send(&message, 1, MPI_INT, i, MTAK1 ,MPI_COMM_WORLD);
-                    }
-                    this->data.lamport_clock_value+=1;
-                    message = this->data.lamport_clock_value;
-                    for(int i = 0; i<process_count; i++){
-                        if(process_id == i) continue;
-                        MPI_Send(&message, 1, MPI_INT, i, MACK1 ,MPI_COMM_WORLD);
                     }
                     break;
                 }
@@ -45,6 +39,7 @@ class Specialist_1: public Thread{
                 else if(status.MPI_TAG == MTAK1){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    ack_count += 1;
                     if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MTAK1 od %d!\n",process_id,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == TREQ){
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
@@ -140,7 +135,9 @@ class Specialist_1: public Thread{
                     if(process_id == i) continue;
                     MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
                 }
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tZaczyna pap. robote!\n",this->process_id);
                 sleep(3);
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tKonczy pap. robote!\n",this->process_id);
                 break;
             }
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
