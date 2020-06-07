@@ -56,7 +56,7 @@ class Specialist_3: public Thread {
                         break;
                     case MTAK3 :
                         if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MRAK3!\n",this->process_id);
-                        this->data.mission_unassigned--;
+                        this->data.mission_unassigned-=1;
                         break;
                 }
 
@@ -107,17 +107,20 @@ class Specialist_3: public Thread {
                         }
                         break;
                     case MREQ3 :
+                        if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOdebral MREQ3!\n",this->process_id);                   
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         message = this->data.lamport_clock_value;
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         break;
                     case S3REQ :
+                        if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOdebral S3REQ!\n",this->process_id);
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
-                        this->data.mission_unassigned++;
+                        this->data.mission_unassigned+=1;
                         break;
                     case MTAK3 :
+                        if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOdebral MTAK3!\n",this->process_id);
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
-                        this->data.mission_unassigned--;
+                        this->data.mission_unassigned-=1;
                         break;
                 }
             }
