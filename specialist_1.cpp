@@ -178,7 +178,7 @@ class Specialist_1: public Thread{
             int message;
             int message_buffor[4];
             MPI_Status status;
-            for(int i = 0; i < 3; i++){
+            for(int i = 1; i < 3; i++){
                 id = this->data.team_ids[i];
                 this->data.lamport_clock_value +=1;
                 message = this->data.lamport_clock_value;
