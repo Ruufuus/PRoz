@@ -25,7 +25,8 @@ class Specialist_3: public Thread {
 
             while(!is_S3REQ){
                 if(ack_count >= this->data.expert_count - this->data.mission_unassigned){
-                    message = this->data.lamport_clock_value;
+                    message = ++this->data.lamport_clock_value;
+                    this->data.mission_unassigned-=1;
                     if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MTAK3!\n",this->process_id);
                     for(int i = 0; i<process_count; i++){
                         if(process_id == i) continue;
@@ -51,7 +52,6 @@ class Specialist_3: public Thread {
                         this->data.mission_unassigned++;
                         this->data.team_ids[0] = message_buffor[1];
                         this->data.team_ids[1] = message_buffor[2];
-                        this->data.team_ids[2] = this->process_id;
                         is_S3REQ = true;
                         break;
                     case MTAK3 :
