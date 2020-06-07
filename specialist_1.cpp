@@ -11,6 +11,7 @@ class Specialist_1: public Thread{
             bool is_mission = false;
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
+            int message_buffor[4];
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, MREQ1 ,MPI_COMM_WORLD);
@@ -21,7 +22,7 @@ class Specialist_1: public Thread{
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("Proces %d bierze misje!\n",this->process_id);
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\tWysyla MTAK1 i MACK1!\n",this->process_id);
                     for(int i = 0; i<process_count; i++){
                         if(process_id == i) continue;
                         MPI_Send(&message, 1, MPI_INT, i, MTAK1 ,MPI_COMM_WORLD);
@@ -35,44 +36,47 @@ class Specialist_1: public Thread{
                     break;
                 }
                 MPI_Status status;
-                MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+                MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == MISSION){
                     this->data.mission_unassigned+=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o nowej misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\tOtrzymal MISSION od %d!\n",process_id,status.MPI_SOURCE);
                 }
                 else if(status.MPI_TAG == MTAK1){
                     this->data.mission_unassigned-=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o zabraniu misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MTAK1 od %d!\n",process_id,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == TREQ){
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
                     MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal TREQ od %d!\n",process_id,status.MPI_SOURCE);
                 }
                 else if(status.MPI_TAG == MREQ1){
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);
-                    if((this->data.lamport_clock_value==message && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message)){
-                        if(DEBUG)printf("Proces %d wysyla wiadomosc ack do id:%d!\n",process_id,status.MPI_SOURCE);
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\tLAMP: %d otrzymal MREQ1 od %d LAMP: %d!\n",process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
+                    if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message_buffor[0])){
+                        if(DEBUG)printf("[SPEC_1_WFM]\t%d\twysyla MACK1 do %d!\n",process_id,status.MPI_SOURCE);
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                         message = this->data.lamport_clock_value;
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
-                    } 
+                    }else{
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    }
                 }else if(status.MPI_TAG == MACK1){
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MACK1 od %d LAMP: %d!\n",process_id,status.MPI_SOURCE, message_buffor[0]);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count+=1;
                 }
-                if(DEBUG)printf("Wartosc zegara lamporta %d procesu %d!\n",this->data.lamport_clock_value,this->process_id);
             }
         }
 
         void wait_for_specialist_2(){
-            bool is_specialist = false;
             this->data.lamport_clock_value+=1;
-            int message = this->data.lamport_clock_value;
+            int message[2] = {this->data.lamport_clock_value, this->process_id};
+            if(DEBUG)printf("[SPEC_1_WFS2]\t%d\tWysyla S2REQ!\n",this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
-                MPI_Send(&message, 1, MPI_INT, i, S2REQ ,MPI_COMM_WORLD);
+                MPI_Send(&message, 2, MPI_INT, i, S2REQ ,MPI_COMM_WORLD);
             }
         }
 
@@ -80,38 +84,42 @@ class Specialist_1: public Thread{
         bool is_team_ready = true;
         MPI_Status status;
         int message;
+        int message_buffor[4];
         while(is_team_ready){
             MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == S2IFREQ){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla S2REQ do %d!\n",this->process_id,status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                 int mes_tab[2] = {this->data.lamport_clock_value, this->process_id};
-                MPI_Send(&message, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
+                MPI_Send(&mes_tab, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
             }
             else if(status.MPI_TAG == TREADY){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
                 /*
                 odebranie wiecej niz jednej liczby gdy reszta odbiera po jednej 
                 trzeba poczytac bo moze tu da sie zrobic po prostu MPI_Recv na 3 liczby i wczyta 3 kolejne liczby
                 */
                 break;
             }else if(status.MPI_TAG == MREQ1){
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);                   
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                    message = this->data.lamport_clock_value;
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                message = this->data.lamport_clock_value;
+                MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
             }else if(status.MPI_TAG == TREQ){
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);                   
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                    message = this->data.lamport_clock_value;
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla  TACK do %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                message = this->data.lamport_clock_value;
+                MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
             }else if(status.MPI_TAG == MISSION){
-                    this->data.mission_unassigned+=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o nowej misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje MISSION od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.mission_unassigned+=1;
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
             }else if(status.MPI_TAG == MTAK1){
-                    this->data.mission_unassigned-=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o zabraniu misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje MTAK1 od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.mission_unassigned-=1;
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
             }
         }
     
@@ -122,90 +130,99 @@ class Specialist_1: public Thread{
         int tack_count = 0;
         MPI_Status status;
         int message;
+        int message_buffor[4];
         while(is_table){
             if(tack_count == this->data.expert_count - this->data.guild_table_count){
-                    this->data.lamport_clock_value+=1;
-                    message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("Proces %d bierze misje!\n",this->process_id);
-                    for(int i = 0; i<process_count; i++){
-                        if(process_id == i) continue;
-                        MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
-                    }
-                    this->data.lamport_clock_value+=1;
-                    message = this->data.lamport_clock_value;
-                    sleep(3);
-                    break;
+                this->data.lamport_clock_value+=1;
+                message = this->data.lamport_clock_value;
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tBierze stol!\n",this->process_id);
+                for(int i = 0; i<process_count; i++){
+                    if(process_id == i) continue;
+                    MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
+                }
+                sleep(3);
+                break;
             }
-            MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+            MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == TACK){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tOtrzymuje TACK od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 tack_count+=1;
             }
             if(status.MPI_TAG == TREQ){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                message = this->data.lamport_clock_value;
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);
-                    if((this->data.lamport_clock_value==message && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message)){
-                        if(DEBUG)printf("Proces %d wysyla wiadomosc ack do id:%d!\n",process_id,status.MPI_SOURCE);
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                        message = this->data.lamport_clock_value;
-                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
-                    }
-            }else if(status.MPI_TAG == MISSION){
-                    this->data.mission_unassigned+=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o nowej misji od procesu %d!\n",process_id,status.MPI_SOURCE);
-            }else if(status.MPI_TAG == MTAK1){
-                    this->data.mission_unassigned-=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o zabraniu misji od procesu %d!\n",process_id,status.MPI_SOURCE);
-            }else if(status.MPI_TAG == MREQ1){
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);                   
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                    message = this->data.lamport_clock_value;
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
-            }
-        }
-        int id;
-        for(int i = 0; i < 3; i++){
-            id = this->data.team_ids[i];
-            this->data.lamport_clock_value +=1;
-            message = this->data.lamport_clock_value;
-            MPI_Send(&message, 1, MPI_INT, id, RREADY ,MPI_COMM_WORLD);
-        }
-        bool is_team_ready = false;
-        int team_ready_counter = 0;
-        while(!is_team_ready){
-            MPI_Recv(&message, 1, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            if(status.MPI_TAG == RREADY){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                team_ready_counter+=1;
-                if(team_ready_counter == 2)
-                {
-                    sleep(5);
-                    break;
-                    }
-            }
-            else if(status.MPI_TAG == MREQ1){
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);                   
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
-                    message = this->data.lamport_clock_value;
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
-            }else if(status.MPI_TAG == TREQ){
-                if(DEBUG)printf("Proces %d otrzymal wiadomosc o checi zabrania misji od procesu %d z wartoscia zegara lamporta rowna %d!\n",process_id,status.MPI_SOURCE, message);                   
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+2;
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tLAMP: %d Otrzymuje TREQ od %d LAMP: %d!\n",this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
+                if((this->data.lamport_clock_value==message && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message)){
+                    if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla TACK do %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
                     MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
+                }else{
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                }
             }else if(status.MPI_TAG == MISSION){
-                    this->data.mission_unassigned+=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o nowej misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tOtrzymuje MISSION od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.mission_unassigned+=1;
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
             }else if(status.MPI_TAG == MTAK1){
-                    this->data.mission_unassigned-=1;
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message)+1;
-                    if(DEBUG)printf("Proces %d otrzymal wiadomosc o zabraniu misji od procesu %d!\n",process_id,status.MPI_SOURCE);
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tOtrzymuje MTAK1 od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.mission_unassigned-=1;
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+            }else if(status.MPI_TAG == MREQ1){
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                message = this->data.lamport_clock_value;
+                MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
             }
         }
+    }
+
+        void ressurection(){
+            int id;
+            int message;
+            int message_buffor[4];
+            MPI_Status status;
+            for(int i = 0; i < 3; i++){
+                id = this->data.team_ids[i];
+                this->data.lamport_clock_value +=1;
+                message = this->data.lamport_clock_value;
+                MPI_Send(&message, 1, MPI_INT, id, RREADY ,MPI_COMM_WORLD);
+            }
+            bool is_team_ready = false;
+            int team_ready_counter = 0;
+            while(!is_team_ready){
+                MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
+                if(status.MPI_TAG == RREADY){
+                    if(DEBUG)printf("[RESSURECT]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    team_ready_counter+=1;
+                    if(team_ready_counter == 2)
+                    {
+                        if(DEBUG)printf("[RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
+                        sleep(5);
+                        if(DEBUG)printf("[RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                        break;
+                        }
+                }
+                else if(status.MPI_TAG == MREQ1){
+                    if(DEBUG)printf("[RESSURECT]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                    message = this->data.lamport_clock_value;
+                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
+                }else if(status.MPI_TAG == TREQ){
+                    if(DEBUG)printf("[RESSURECT]\t%d\tWysyla TACK do %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                    message = this->data.lamport_clock_value;
+                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
+                }else if(status.MPI_TAG == MISSION){
+                    if(DEBUG)printf("[RESSURECT]\t%d\tOtzymuje MISSION od %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.mission_unassigned+=1;
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                }else if(status.MPI_TAG == MTAK1){
+                    if(DEBUG)printf("[RESSURECT]\t%d\tOtrzymuje MTAK1 do %d!\n",this->process_id, status.MPI_SOURCE);
+                    this->data.mission_unassigned-=1;
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                }
+            }
         }
 
         void specialist_1_lifetime(){
@@ -213,5 +230,6 @@ class Specialist_1: public Thread{
             this->wait_for_specialist_2();
             this->wait_for_team();
             this->wait_for_table();
+            this->ressurection();
         }
 };

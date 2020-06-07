@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <mpi.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "thread.cpp"
 #include "specialist.h"
