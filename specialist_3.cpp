@@ -37,26 +37,34 @@ class Specialist_3: public Thread {
 
                 switch(status.MPI_TAG){
                     case MREQ3 :
-                        if (this->data.lamport_clock_value < message_buffor[0]){
+                        if (this->data.lamport_clock_value < message_buffor[0] || 
+                        (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                             this->data.lamport_clock_value += 1;
                             message = this->data.lamport_clock_value;
-                            MPI_Send(&message, 1, MPI_INT, i, MACK3, MPI_COMM_WORLD);
-                        } 
+                            MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
+                        }
                         break;
                     case S3REQ :
                         this->data.mission_unassigned += 1;
+                        this->data.team_ids[0] = message_buffor[1];
+                        this->data.team_ids[1] = message_buffor[2];
                         break;
                     case MTAK3 :
                         this->data.mission_unassigned -= 1;
                     default:
                         break;
                 }
-                
+
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
             }
         }
-
         void report_team_ready(){
+            int team_mess[4];
+            team_mess[1] = this->data.lamport_clock_value + 1;
+            memcpy(&(team_mess[2]),this->data.team_ids, sizeof(int)*3);
 
+            for(int i = 1; i < 3; i++){
+                MPI_Send(&team_mess, 4, MPI_INT, this->data.team_ids[i], TREADY, MPI_COMM_WORLD);
+            }
         }
 }
