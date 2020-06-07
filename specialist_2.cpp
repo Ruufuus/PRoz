@@ -123,7 +123,7 @@ class Specialist_2: public Thread{
         MPI_Status status;
         int message;
         int message_buffor[4];
-        while(is_table){
+        while(is_skeleton){
             if(skack_count == this->data.expert_count - this->data.initial_skeleton_count){
                 this->data.lamport_clock_value+=1;
                 message = this->data.lamport_clock_value;
