@@ -18,7 +18,7 @@ class Specialist_2: public Thread{
             }
             int ack_count = 0;
             while(!is_mission){
-                if(ack_count == this->data.expert_count-this->data.mission_unassigned){
+                if(ack_count >= this->data.expert_count-this->data.mission_unassigned){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
@@ -124,7 +124,7 @@ class Specialist_2: public Thread{
         int message;
         int message_buffor[4];
         while(is_skeleton){
-            if(skack_count == this->data.expert_count - this->data.initial_skeleton_count){
+            if(skack_count >= this->data.expert_count - this->data.initial_skeleton_count){
                 this->data.lamport_clock_value+=1;
                 message = this->data.lamport_clock_value;
                 if(DEBUG)printf("[SPEC_2_WFS]\t%d\tBierze szkielet!\n",this->process_id);

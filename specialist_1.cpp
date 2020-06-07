@@ -18,7 +18,7 @@ class Specialist_1: public Thread{
             }
             int ack_count = 0;
             while(!is_mission){
-                if(ack_count == this->data.expert_count-this->data.mission_unassigned){
+                if(ack_count >= this->data.expert_count-this->data.mission_unassigned){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
@@ -91,11 +91,8 @@ class Specialist_1: public Thread{
             else if(status.MPI_TAG == TREADY){
                 if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d!\n",this->process_id, status.MPI_SOURCE);
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                printf("%d %d %d\n",message_buffor[1],message_buffor[2],message_buffor[3]);
                 memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
-                /*
-                odebranie wiecej niz jednej liczby gdy reszta odbiera po jednej 
-                trzeba poczytac bo moze tu da sie zrobic po prostu MPI_Recv na 3 liczby i wczyta 3 kolejne liczby
-                */
                 break;
             }else if(status.MPI_TAG == MREQ1){
                 if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla MACK1 do %d!\n",this->process_id, status.MPI_SOURCE);
@@ -127,7 +124,7 @@ class Specialist_1: public Thread{
         int message;
         int message_buffor[4];
         while(is_table){
-            if(tack_count == this->data.expert_count - this->data.guild_table_count){
+            if(tack_count >= this->data.expert_count - this->data.guild_table_count){
                 this->data.lamport_clock_value+=1;
                 message = this->data.lamport_clock_value;
                 if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tBierze stol!\n",this->process_id);

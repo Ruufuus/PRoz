@@ -9,6 +9,8 @@ int main(int argc, char *argv[]){
     MPI_Init(&argc,&argv);
     specialist sp;
     sp.mission_unassigned = 0;
+    sp.guild_table_count = 3;
+    sp.initial_skeleton_count = 3;
     sp.expert_count = 1;
     sp.lamport_clock_value = 0;
     int process_id; 
@@ -19,14 +21,17 @@ int main(int argc, char *argv[]){
     }
     else if(process_id == 1){
     Specialist_1 specialist_1__(sp);
+    while(true)
     specialist_1__.lifetime();
     }
     else if(process_id == 2){
     Specialist_2 specialist_2__(sp);
+    while(true)
     specialist_2__.lifetime();
     }
     else if(process_id == 3){
     Specialist_3 specialist_3__(sp);
+    while(true)
     specialist_3__.lifetime();
     }
 
