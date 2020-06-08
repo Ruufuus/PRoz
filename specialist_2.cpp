@@ -70,6 +70,8 @@ class Specialist_2: public Thread{
                         }else{
                             this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                         }
+                    }else{
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     }
                 }else if(status.MPI_TAG == MACK2){
                     if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\totrzymal MACK2 od %d LAMP: %d!\n",process_id,status.MPI_SOURCE, message_buffor[0]);
