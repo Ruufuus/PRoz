@@ -48,6 +48,7 @@ class Specialist_3: public Thread {
 
                 switch(status.MPI_TAG){
                     case MREQ3 :
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MREQ3!\n",this->process_id);
                         if (ack_count < this->data.expert_count -1)
                         {
                             if(this->data.lamport_clock_value < message_buffor[0] || 
@@ -59,12 +60,17 @@ class Specialist_3: public Thread {
                             }
                         }
                         break;
+                    case MACK3:
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MACK3!\n",this->process_id);
+                        ack_count+=1;
+                        break;
                     case S3REQ :
                         if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral S3REQ!\n",this->process_id);
                         this->process_list[status.MPI_SOURCE]+=1;
                         break;
                     case MTAK3 :
                         if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MTAK3!\n",this->process_id);
+                        ack_count+1;
                         this->process_list[message_buffor[1]]-=1;
                         break;
                 }
