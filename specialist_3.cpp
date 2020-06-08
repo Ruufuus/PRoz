@@ -55,7 +55,7 @@ class Specialist_3: public Thread {
                             printf("BINGO lamp %d %d\n",this->data.lamport_clock_value,message_buffor[0]);
                             if(this->data.lamport_clock_value < message_buffor[0] || 
                             (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
-                                this->data.lamport_clock_value++;
+                                this->data.lamport_clock_value+=2;
                                 message = this->data.lamport_clock_value;
                                 if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MACK3 do %d!\n",this->process_id, status.MPI_SOURCE);
                                 MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
@@ -106,23 +106,26 @@ class Specialist_3: public Thread {
                     case FTREADY:
                         if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral FTREADY (%d %d %d)!\n",this->process_id, message_buffor[1], message_buffor[2], message_buffor[3]);
                         memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                         is_FTREADY = true;
                         break;
                     case MREQ3 :
                         if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tWysyla MACK3 do %d!\n",this->process_id, status.MPI_SOURCE);
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+2;
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         break;
                     case S3REQ :
                         if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral S3REQ!\n",this->process_id);
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1; 
                         this->process_list[status.MPI_SOURCE]+=1;
                         break;
                     case MTAK3 :
                         if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral MTAK3!\n",this->process_id);
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                         this->process_list[message_buffor[1]]-=1;
                         break;
                 }
 
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
             }
         }
 
@@ -161,7 +164,7 @@ class Specialist_3: public Thread {
                         break;
                     case MREQ3 :
                         if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOdebral MREQ3!\n",this->process_id);                   
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+2;
                         message = this->data.lamport_clock_value;
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         break;
