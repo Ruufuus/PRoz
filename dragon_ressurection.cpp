@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
     sp.mission_unassigned = 0;
     sp.guild_table_count = 3;
     sp.initial_skeleton_count = 3;
-    sp.expert_count = 1;
+    sp.expert_count = 2;
     sp.lamport_clock_value = 0;
     specialist sp2;
     sp2.mission_unassigned = 0;
@@ -45,6 +45,10 @@ int main(int argc, char *argv[]){
     Specialist_3 specialist_3__(sp3);
     while(true)
     specialist_3__.lifetime();
+    }else if(process_id == 4){
+    Specialist_1 specialist_1__(sp);
+        while(true)
+        specialist_1__.lifetime();
     }
 
 
