@@ -175,6 +175,7 @@ class Specialist_1: public Thread{
             int message_buffor[4];
             MPI_Status status;
             for(int i = 1; i < 3; i++){
+                if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tWysyla RREADY do %d!\n",this->process_id, id);
                 id = this->data.team_ids[i];
                 this->data.lamport_clock_value +=1;
                 message = this->data.lamport_clock_value;

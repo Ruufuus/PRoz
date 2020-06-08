@@ -33,6 +33,7 @@
 #define S3REQ 143
 
 #define TREADY 200
+#define FTREADY 201
 
 #define TREQ 300
 
