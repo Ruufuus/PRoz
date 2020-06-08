@@ -1,0 +1,90 @@
+Liczba procesow: 7!
+6 jako specialist 3!
+[SPEC_3_WFS3REQ]	6	Wysyla MREQ3!
+Liczba procesow: 7!
+0 jako employer!
+Liczba procesow: 7!
+4 jako specialist 1!
+[SPEC_3_WFS3REQ]	6	ack_count	0!
+Liczba procesow: 7!
+2 jako specialist 2!
+[SPEC_3_WFS3REQ]	6	ack_count	0!
+[SPEC_3_WFS3REQ]	6	ack_count	0!
+Liczba procesow: 7!
+3 jako specialist 3!
+[SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+BINGO lamp 1 1
+[SPEC_3_WFS3REQ]	6	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+BINGO lamp 1 1
+[SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 6!
+[SPEC_3_WFS3REQ][SPEC_3_WFS3REQ]	6	Odebral MACK3!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+Liczba procesow: 7!
+1 jako specialist 1!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_1_WFM]	1	LAMP: 1 otrzymal MREQ1 od 4 LAMP: 1!
+[SPEC_1_WFM]	1	wysyla MACK1 do 4!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_1_WFM]	4	LAMP: 1 otrzymal MREQ1 od 1 LAMP: 1!
+[SPEC_1_WFM]	4	otrzymal MACK1 od 1 LAMP: 3!
+[SPEC_1_WFM]	4	Wysyla MTAK1 i MACK1!
+[SPEC_1_WFS2]	4	Wysyla S2REQ!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count[SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 4!
+	1 3 
+[SPEC_1_WFM]	1	otrzymal MTAK1 od 4!
+0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+Liczba procesow: 7!
+5 jako specialist 2!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_2_WFS2REQ]	2	LAMP: 7 otrzymal MREQ2 od 5 LAMP: 1!
+[SPEC_2_WFS2REQ]	5	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+[SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 4!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_1_WFM]	1	Otrzymal MISSION od 0!
+[SPEC_1_WFM]	1	Wysyla MTAK1 i MACK1!
+[SPEC_1_WFS2]	1	Wysyla S2REQ!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[SPEC_1_WFT]	4	Otrzymuje MTAK1 od 1!
+[SPEC_2_WFS2REQ][SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 1!
+	2	Otrzymal S2REQ od 1!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_1_WFT]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_1_WFT]	1	Otrzymuje MISSION od 0!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_1_WFT]	1	Otrzymuje MISSION od 0!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_1_WFT]	1	Otrzymuje MISSION od 0!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+[SPEC_3_WFS3REQ]	3	ack_count	0!
+[SPEC_1_WFT]	1	Otrzymuje MISSION od 0!
+[SPEC_3_WFS3REQ]	6	ack_count	1!
+[SPEC_1_WFT]	4	Otrzymuje MISSION od 0!

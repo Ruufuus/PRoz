@@ -22,7 +22,7 @@ class Specialist_3: public Thread {
             int ack_count = 0;
             int message_tak[2];
             while(!is_S3REQ){
-                printf("[SPEC_3_WFS3REQ]\t%d\tack_count%d!\n",this->process_id,ack_count);
+                printf("[SPEC_3_WFS3REQ]\t%d\tack_count\t%d!\n",this->process_id,ack_count);
                 if(ack_count >= this->data.expert_count - 1){
                     bool is_free = false;
                     for(int i = 0; i<this->process_count; i++){
@@ -88,7 +88,7 @@ class Specialist_3: public Thread {
         }
         void report_team_ready(){
             int team_mess[2];
-            team_mess[0] = this->data.lamport_clock_value + 1;
+            team_mess[0] = ++this->data.lamport_clock_value;
             team_mess[1] = this->process_id;
             if(DEBUG)printf("[SPEC_3_RTR]\t%d\tWysyla TREADY do %d!\n",this->process_id, this->data.team_ids[1]);
             MPI_Send(&team_mess, 2, MPI_INT, this->data.team_ids[1], TREADY, MPI_COMM_WORLD);
