@@ -14,10 +14,9 @@ class Specialist_3: public Thread {
             this->data.lamport_clock_value += 1;
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
-            
+            if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3!\n",this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
-                if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3 do %d!\n",this->process_id, i);
                 MPI_Send( &message, 1, MPI_INT, i, MREQ3, MPI_COMM_WORLD);
             }
             int ack_count = 0;
