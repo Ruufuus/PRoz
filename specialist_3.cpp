@@ -88,7 +88,7 @@ class Specialist_3: public Thread {
 
                 switch(status.MPI_TAG){
                     case FTREADY:
-                        if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral FTREADY!\n",this->process_id);
+                        if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral FTREADY (%d %d %d)!\n",this->process_id, message_buffor[1], message_buffor[2], message_buffor[3]);
                         memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
                         is_FTREADY = true;
                         break;

@@ -47,6 +47,6 @@ int main(int argc, char *argv[]){
     specialist_3__.lifetime();
     }
 
-
+    MPI_Finalize();
 
 }

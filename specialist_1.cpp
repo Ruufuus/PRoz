@@ -89,7 +89,7 @@ class Specialist_1: public Thread{
                 MPI_Send(&mes_tab, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
             }
             else if(status.MPI_TAG == TREADY){
-                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d (%d %d %d)!\n",this->process_id, status.MPI_SOURCE,message_buffor[1],message_buffor[2],message_buffor[3]);
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
                 break;
