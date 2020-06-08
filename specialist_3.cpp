@@ -48,12 +48,15 @@ class Specialist_3: public Thread {
 
                 switch(status.MPI_TAG){
                     case MREQ3 :
-                        if (this->data.lamport_clock_value < message_buffor[0] || 
-                        (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
-                            this->data.lamport_clock_value++;
-                            message = this->data.lamport_clock_value;
-                            if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MACK3 do %d!\n",this->process_id, status.MPI_SOURCE);
-                            MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
+                        if (ack_count < this->data.expert_count -1)
+                        {
+                            if(this->data.lamport_clock_value < message_buffor[0] || 
+                            (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
+                                this->data.lamport_clock_value++;
+                                message = this->data.lamport_clock_value;
+                                if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tWysyla MACK3 do %d!\n",this->process_id, status.MPI_SOURCE);
+                                MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
+                            }
                         }
                         break;
                     case S3REQ :

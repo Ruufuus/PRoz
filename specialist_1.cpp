@@ -18,7 +18,7 @@ class Specialist_1: public Thread{
             }
             int ack_count = 0;
             while(!is_mission){
-                if(ack_count >= this->data.expert_count-this->data.mission_unassigned){
+                if(ack_count >= this->data.expert_count - this->data.mission_unassigned - 1){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
@@ -40,6 +40,7 @@ class Specialist_1: public Thread{
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count += 1;
+                    printf("%d %d \n",ack_count, this->data.expert_count - this->data.mission_unassigned);
                     if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MTAK1 od %d!\n",process_id,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == TREQ){
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;

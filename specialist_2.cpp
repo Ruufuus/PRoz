@@ -60,13 +60,16 @@ class Specialist_2: public Thread{
                 }
                 else if(status.MPI_TAG == MREQ2){
                     if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tLAMP: %d otrzymal MREQ2 od %d LAMP: %d!\n",process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
-                    if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message_buffor[0])){
-                        if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n",process_id,status.MPI_SOURCE);
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                        message = this->data.lamport_clock_value;
-                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
-                    }else{
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                        if(ack_count < this->data.expert_count -1){
+                        if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                        || (this->data.lamport_clock_value<message_buffor[0])){
+                            if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n",process_id,status.MPI_SOURCE);
+                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                            message = this->data.lamport_clock_value;
+                            MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
+                        }else{
+                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                        }
                     }
                 }else if(status.MPI_TAG == MACK2){
                     if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\totrzymal MACK2 od %d LAMP: %d!\n",process_id,status.MPI_SOURCE, message_buffor[0]);
