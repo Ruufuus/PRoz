@@ -84,7 +84,6 @@ class Specialist_3: public Thread {
                         break;
                 }
 
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
             }
         }
         void report_team_ready(){
