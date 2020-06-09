@@ -22,7 +22,7 @@ class Specialist_1: public Thread{
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MTAK1 i MACK1!\n",this->data.lamport_clock_value,this->process_id);
+                    if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MTAK1!\n",this->data.lamport_clock_value,this->process_id);
                     for(int i = 0; i<process_count; i++){
                         if(process_id == i) continue;
                         MPI_Send(&message, 1, MPI_INT, i, MTAK1 ,MPI_COMM_WORLD);
