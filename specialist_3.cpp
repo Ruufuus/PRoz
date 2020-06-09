@@ -54,7 +54,7 @@ class Specialist_3: public Thread {
                         if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tOdebral MREQ3!\n", this->data.lamport_clock_value,this->process_id);
                         if (ack_count < this->data.expert_count -1)
                         {
-                            if(this->data.lamport_clock_value < message_buffor[0] || 
+                            if(this->data.lamport_clock_value > message_buffor[0] || 
                             (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                                 this->data.lamport_clock_value+=2;
                                 message = this->data.lamport_clock_value;

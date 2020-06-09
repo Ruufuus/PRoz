@@ -50,7 +50,7 @@ class Specialist_1: public Thread{
                 else if(status.MPI_TAG == MREQ1){
                     if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tLAMP: %d otrzymal MREQ1 od %d LAMP: %d!\n",this->data.lamport_clock_value,process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
                     if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                    || (this->data.lamport_clock_value<message_buffor[0])){
+                    || (this->data.lamport_clock_value>message_buffor[0])){
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                         if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\twysyla MACK1 do %d!\n",this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
                         message = this->data.lamport_clock_value;
