@@ -147,7 +147,7 @@ class Specialist_2: public Thread{
         int skack_count = 0;
         int rready_count = 0;
         MPI_Status status;
-        int message;
+        int message = ++this->data.lamport_clock_value;
         int message_buffor[4];
         int request_priority = this->data.lamport_clock_value;
         if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKREQ!\n", this->data.lamport_clock_value,this->process_id);

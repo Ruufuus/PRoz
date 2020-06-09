@@ -131,7 +131,7 @@ class Specialist_1: public Thread{
         int tack_count = 0;
         int rready_count = rready_counter;
         MPI_Status status;
-        int message;
+        int message = ++this->data.lamport_clock_value;
         int message_buffor[4];
         if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tWysyla TREQ!\n", this->data.lamport_clock_value,this->process_id);
         for(int i = 0; i<process_count; i++){
