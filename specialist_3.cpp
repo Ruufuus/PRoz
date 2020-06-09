@@ -93,7 +93,8 @@ class Specialist_3: public Thread {
             MPI_Send(&team_mess, 2, MPI_INT, this->data.team_ids[1], TREADY, MPI_COMM_WORLD);
         }
         
-        void wait_for_FTREADY(){
+        int wait_for_FTREADY(){
+            int rready_count = 0;
             bool is_FTREADY = false;
             int message_buffor[4];
             int message = this->data.lamport_clock_value;
@@ -102,6 +103,11 @@ class Specialist_3: public Thread {
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
 
                 switch(status.MPI_TAG){
+                    case RREADY:
+                        if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                        rready_count+=1;
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
+                        break;
                     case FTREADY:
                         if(DEBUG)printf("[SPEC_3_WFSTREDY]\t%d\tOdebral FTREADY (%d %d %d)!\n",this->process_id, message_buffor[1], message_buffor[2], message_buffor[3]);
                         memcpy(this->data.team_ids, &(message_buffor[1]), sizeof(int)*3);
@@ -126,9 +132,10 @@ class Specialist_3: public Thread {
                 }
 
             }
+            return rready_count;
         }
 
-        void prepare_for_ressurection() {
+        void prepare_for_ressurection(int rready_counter) {
             this->data.lamport_clock_value++;
             int message = this->data.lamport_clock_value;
 
@@ -138,7 +145,7 @@ class Specialist_3: public Thread {
             }
 
             int mess_buf[4];
-            int rready_count = 0;
+            int rready_count = rready_counter;
             bool team_ready = false;
             MPI_Status status;
             while(!team_ready){
@@ -151,7 +158,7 @@ class Specialist_3: public Thread {
                         rready_count++;
                         if(rready_count == 2){
                             if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                            sleep(rand()%1+1);
+                            //sleep(rand()%1+1);
                             if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                             message = ++this->data.lamport_clock_value;
                             for(int i = 0; i<process_count; i++){
@@ -184,8 +191,7 @@ class Specialist_3: public Thread {
         void lifetime(){
             wait_for_S3REQ();
             report_team_ready();
-            wait_for_FTREADY();
-            prepare_for_ressurection();
+            prepare_for_ressurection(wait_for_FTREADY());
         }
 
 

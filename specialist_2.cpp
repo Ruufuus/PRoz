@@ -138,9 +138,10 @@ class Specialist_2: public Thread{
     
 };
 
-        void wait_for_skeleton(){
+        int wait_for_skeleton(){
         bool is_skeleton = true;
         int skack_count = 0;
+        int rready_count = 0;
         MPI_Status status;
         int message;
         int message_buffor[4];
@@ -154,7 +155,7 @@ class Specialist_2: public Thread{
                     MPI_Send(&message, 1, MPI_INT, i, SKACK ,MPI_COMM_WORLD);
                 }
                 if(DEBUG)printf("[SPEC_2_WFS]]\t%d\tZaczyna brac szkielet!\n",this->process_id);
-                sleep(rand()%5+1);
+                //sleep(rand()%5+1);
                 if(DEBUG)printf("[SPEC_2_WFS]\t%d\tKonczy brac szkielet!\n",this->process_id);
                 break;
             }
@@ -163,8 +164,12 @@ class Specialist_2: public Thread{
                 if(DEBUG)printf("[SPEC_2_WFS]\t%d\tOtrzymuje SKACK od %d!\n",this->process_id, status.MPI_SOURCE);
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 skack_count+=1;
+            }if(status.MPI_TAG == RREADY){
+                if(DEBUG)printf("[SPEC_2_WFS]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                rready_count+=1;
             }
-            if(status.MPI_TAG == SKREQ){
+            else if(status.MPI_TAG == SKREQ){
                 if(DEBUG)printf("[SPEC_2_WFS]\t%d\tLAMP: %d Otrzymuje SKERQ od %d LAMP: %d!\n",this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
                 if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message_buffor[0])){
                     if(DEBUG)printf("[SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n",this->process_id, status.MPI_SOURCE);
@@ -189,9 +194,10 @@ class Specialist_2: public Thread{
                 MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
             }
         }
+        return rready_count;
     }
 
-        void ressurection(){
+        void ressurection(int rready_count){
             int id;
             int message;
             int message_buffor[4];
@@ -205,7 +211,7 @@ class Specialist_2: public Thread{
                 MPI_Send(&message, 1, MPI_INT, id, RREADY ,MPI_COMM_WORLD);
             }
             bool is_team_ready = false;
-            int team_ready_counter = 0;
+            int team_ready_counter = rready_count;
             while(!is_team_ready){
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == RREADY){
@@ -215,7 +221,7 @@ class Specialist_2: public Thread{
                     if(team_ready_counter == 2)
                     {
                         if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                        sleep(rand()%1+1);
+                        //sleep(rand()%1+1);
                         if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                         break;
                         }
@@ -245,8 +251,7 @@ class Specialist_2: public Thread{
         void lifetime(){
             this->wait_for_S2REQ();
             this->wait_for_specialist_3();
-            this->wait_for_team();
-            this->wait_for_skeleton();
-            this->ressurection();
+            this->wait_for_team();;
+            this->ressurection(this->wait_for_skeleton());
         }
 };
