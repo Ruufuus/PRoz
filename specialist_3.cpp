@@ -14,6 +14,7 @@ class Specialist_3: public Thread {
             this->data.lamport_clock_value += 1;
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
+            int request_priority = this->data.lamport_clock_value;
             if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3!\n", this->data.lamport_clock_value,this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
@@ -54,8 +55,8 @@ class Specialist_3: public Thread {
                         if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tOdebral MREQ3!\n", this->data.lamport_clock_value,this->process_id);
                         if (ack_count < this->data.expert_count -1)
                         {
-                            if(this->data.lamport_clock_value > message_buffor[0] || 
-                            (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
+                            if(request_priority> message_buffor[0] || 
+                            (request_priority == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                                 this->data.lamport_clock_value+=2;
                                 message = this->data.lamport_clock_value;
                                 if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tWysyla MACK3 do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
