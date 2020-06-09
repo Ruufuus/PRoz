@@ -173,13 +173,16 @@ class Specialist_2: public Thread{
             }
             else if(status.MPI_TAG == SKREQ){
                 if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tLAMP: %d Otrzymuje SKERQ od %d LAMP: %d!\n", this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
-                if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) || (this->data.lamport_clock_value<message_buffor[0])){
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                    message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
-                }else{
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                if(skack_count < this->data.expert_count - this->data.initial_skeleton_count){
+                    if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                    || (this->data.lamport_clock_value>message_buffor[0])){
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                        message = this->data.lamport_clock_value;
+                        if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
+                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
+                    }else{
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    }
                 }
             }else if(status.MPI_TAG == S2REQ){
                 this->data.mission_unassigned+=1;
