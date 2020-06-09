@@ -213,18 +213,18 @@ class Specialist_2: public Thread{
             bool is_team_ready = false;
             int team_ready_counter = rready_count;
             while(!is_team_ready){
+                if(team_ready_counter == 2)
+                {
+                    if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
+                    //sleep(rand()%1+1);
+                    if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                    break;
+                }
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == RREADY){
                     if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     team_ready_counter+=1;
-                    if(team_ready_counter == 2)
-                    {
-                        if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                        //sleep(rand()%1+1);
-                        if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
-                        break;
-                        }
                 }
                 else if(status.MPI_TAG == MREQ2){
                     if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tWysyla MACK2 do %d!\n",this->process_id, status.MPI_SOURCE);

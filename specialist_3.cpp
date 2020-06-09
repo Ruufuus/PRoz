@@ -149,24 +149,19 @@ class Specialist_3: public Thread {
             bool team_ready = false;
             MPI_Status status;
             while(!team_ready){
+                if(rready_count == 2)
+                {
+                    if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
+                    //sleep(rand()%1+1);
+                    if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
+                    break;
+                }
                 MPI_Recv(&mess_buf, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-
                 switch(status.MPI_TAG){
                     case RREADY :
                         if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOtrzymal RREADY od %d!\n",this->process_id,status.MPI_SOURCE);
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         rready_count++;
-                        if(rready_count == 2){
-                            if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                            //sleep(rand()%1+1);
-                            if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
-                            message = ++this->data.lamport_clock_value;
-                            for(int i = 0; i<process_count; i++){
-                                if(process_id == i) continue;
-                                MPI_Send( &message, 1, MPI_INT, i, S3IFREQ, MPI_COMM_WORLD);
-                            }
-                            team_ready = true;
-                        }
                         break;
                     case MREQ3 :
                         if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tOdebral MREQ3!\n",this->process_id);                   
