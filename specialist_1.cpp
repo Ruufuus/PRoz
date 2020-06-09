@@ -76,11 +76,12 @@ class Specialist_1: public Thread{
             }
         }
 
-        void wait_for_team(){
+        int wait_for_team(){
         bool is_team_ready = true;
         MPI_Status status;
         int message;
         int message_buffor[4];
+        int rready_counter = 0;
         while(is_team_ready){
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == S2IFREQ){
@@ -88,6 +89,10 @@ class Specialist_1: public Thread{
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                 int mes_tab[2] = {this->data.lamport_clock_value, this->process_id};
                 MPI_Send(&mes_tab, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
+            }else if(status.MPI_TAG == RREADY){
+                if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tOtrzymuje RREADY od %d!\n",this->process_id, status.MPI_SOURCE);
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                rready_counter+=1;
             }
             else if(status.MPI_TAG == TREADY){
                 if(DEBUG)printf("[SPEC_1_WFT]\t%d\tOtrzymuje TREADY od %d (%d %d %d)!\n",this->process_id, status.MPI_SOURCE,message_buffor[1],message_buffor[2],message_buffor[3]);
@@ -114,13 +119,13 @@ class Specialist_1: public Thread{
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
             }
         }
-    
+    return rready_counter;
 };
 
-        int wait_for_table(){
+        int wait_for_table(int rready_counter){
         bool is_table = true;
         int tack_count = 0;
-        int rready_count = 0;
+        int rready_count = rready_counter;
         MPI_Status status;
         int message;
         int message_buffor[4];
@@ -191,6 +196,7 @@ class Specialist_1: public Thread{
             bool is_team_ready = false;
             int team_ready_counter = rready_counter;
             while(!is_team_ready){
+                printf("%d\n",team_ready_counter);
                 if(team_ready_counter == 2)
                 {
                     if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
@@ -229,7 +235,9 @@ class Specialist_1: public Thread{
         void lifetime(){
             this->wait_for_mission();
             this->wait_for_specialist_2();
-            this->wait_for_team();
-            this->ressurection(this->wait_for_table());
+            int rready_counter;
+            rready_counter = this->wait_for_team();
+            rready_counter = this->wait_for_table(rready_counter);
+            this->ressurection(rready_counter);
         }
 };

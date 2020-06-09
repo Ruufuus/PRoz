@@ -42,7 +42,7 @@ class Specialist_3: public Thread {
                         }
                     }
                         if(is_free)break;
-                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
+                        //if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
                 }
                 MPI_Status status;
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -184,9 +184,10 @@ class Specialist_3: public Thread {
         }
 
         void lifetime(){
-            wait_for_S3REQ();
-            report_team_ready();
-            prepare_for_ressurection(wait_for_FTREADY());
+            this->wait_for_S3REQ();
+            this->report_team_ready();
+            int rready_counter = wait_for_FTREADY();
+            prepare_for_ressurection(rready_counter);
         }
 
 

@@ -38,7 +38,7 @@ class Specialist_2: public Thread{
                         }
                     }
                     if(is_free)break;
-                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tBrak specjalistow nr1 szukajacych!\n",this->process_id);
+                    //if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tBrak specjalistow nr1 szukajacych!\n",this->process_id);
                     
                 }
                 MPI_Status status;
@@ -251,7 +251,8 @@ class Specialist_2: public Thread{
         void lifetime(){
             this->wait_for_S2REQ();
             this->wait_for_specialist_3();
-            this->wait_for_team();;
-            this->ressurection(this->wait_for_skeleton());
+            this->wait_for_team();
+            int rready__counter = this->wait_for_skeleton();
+            this->ressurection(rready__counter);
         }
 };
