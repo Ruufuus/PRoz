@@ -1,0 +1,944 @@
+4 jako specialist 1!
+9 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	9	Wysyla MREQ3!
+13 jako specialist 1!
+16 jako specialist 1!
+1 [SPEC_1_WFM]	4	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+3 [SPEC_1_WFM]	4	wysyla MACK1 do 13!
+3 [SPEC_1_WFM]	4	LAMP: 3 otrzymal MREQ1 od 16 LAMP: 1!
+5 [SPEC_1_WFM]	4	wysyla MACK1 do 16!
+1 [SPEC_1_WFM]1 [SPEC_1_WFM]	16	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+2 [SPEC_1_WFM]	16	LAMP: 2 otrzymal MREQ1 od 4 LAMP: 1!
+4 [SPEC_1_WFM]	16	wysyla MACK1 do 4!
+6 [SPEC_1_WFM]6 [SPEC_1_WFM]	4 1 0	otrzymal MACK1 od 16 LAMP: 4!
+	16 1 0	otrzymal MACK1 od 4 LAMP: 5!
+7 [SPEC_1_WFM]	16 2 0	otrzymal MACK1 od 13 LAMP: 6!
+6 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	6	Wysyla MREQ3!
+	13	LAMP: 1 otrzymal MREQ1 od 4 LAMP: 1!
+4 [SPEC_1_WFM]	13 1 0	otrzymal MACK1 od 4 LAMP: 3!
+4 [SPEC_1_WFM]	13	LAMP: 4 otrzymal MREQ1 od 16 LAMP: 1!
+6 [SPEC_1_WFM]	13	wysyla MACK1 do 16!
+11 jako specialist 2!
+6 [SPEC_1_WFM]	13	LAMP: 6 otrzymal MREQ1 od 19 LAMP: 1!
+8 [SPEC_1_WFM]	13	wysyla MACK1 do 19!
+19 jako specialist 1!
+1 [SPEC_1_WFM]	19	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+2 [SPEC_1_WFM]	19	LAMP: 2 otrzymal MREQ1 od 4 LAMP: 1!
+4 [SPEC_1_WFM]	19	wysyla MACK1 do 4!
+9 [SPEC_1_WFM]	19 1 0	otrzymal MACK1 od 13 LAMP: 8!
+9 [SPEC_1_WFM]	19	LAMP: 9 otrzymal MREQ1 od 16 LAMP: 1!
+11 [SPEC_1_WFM]	19	wysyla MACK1 do 16!
+2 jako specialist 2!
+1 [SPEC_2_WFS2REQ]	2	LAMP: 1 otrzymal MREQ2 od 11 LAMP: 1!
+3 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 11!
+7 [SPEC_1_WFM]	16	LAMP: 7 otrzymal MREQ1 od 19 LAMP: 1!
+9 [SPEC_1_WFM]	16	wysyla MACK1 do 19!
+12 [SPEC_1_WFM]	16 3 0	otrzymal MACK1 od 19 LAMP: 11!
+7 jako specialist 1!
+15 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	15	Wysyla MREQ3!
+18 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	18	Wysyla MREQ3!
+1 [SPEC_3_WFS3REQ]20 jako specialist 2!
+1 jako specialist 1!
+1 [SPEC_1_WFM]	1	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+3 [SPEC_1_WFM]	1	wysyla MACK1 do 13!
+3 [SPEC_1_WFM]	1	LAMP: 3 otrzymal MREQ1 od 4 LAMP: 1!
+5 [SPEC_1_WFM]	1	wysyla MACK1 do 4!
+5 [SPEC_1_WFM]	1	LAMP: 5 otrzymal MREQ1 od 16 LAMP: 1!
+7 [SPEC_1_WFM]	1	wysyla MACK1 do 16!
+7 [SPEC_1_WFM]	1	LAMP: 7 otrzymal MREQ1 od 19 LAMP: 1!
+9 [SPEC_1_WFM]	1	wysyla MACK1 do 19!
+9 [SPEC_1_WFM]	1	LAMP: 9 otrzymal MREQ1 od 7 LAMP: 1!
+11 [SPEC_1_WFM]	1	wysyla MACK1 do 7!
+1 [SPEC_1_WFM]1 [SPEC_3_WFS3REQ]3 [SPEC_2_WFS2REQ]	2	LAMP: 3 otrzymal MREQ2 od 20 LAMP: 1!
+5 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 20!
+	18	Odebral MREQ3!
+	7	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+3 [SPEC_1_WFM]	7	wysyla MACK1 do 13!
+3 [SPEC_1_WFM]	7	LAMP: 3 otrzymal MREQ1 od 1 LAMP: 1!
+5 [SPEC_1_WFM]	7	wysyla MACK1 do 1!
+5 [SPEC_1_WFM]	7	LAMP: 5 otrzymal MREQ1 od 4 LAMP: 1!
+7 [SPEC_1_WFM]	7	1 [SPEC_2_WFS2REQ]	15	Odebral MREQ3!
+2 [SPEC_3_WFS3REQ]	15	Odebral MREQ3!
+4 [SPEC_3_WFS3REQ]	15	Wysyla MACK3 do 18!
+14 jako specialist 2!
+1 [SPEC_2_WFS2REQ]	14	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+2 [SPEC_2_WFS2REQ]	14	LAMP: 2 otrzymal MREQ2 od 11 LAMP: 1!
+4 [SPEC_2_WFS2REQ]	14	wysyla MACK2 do 11!
+4 [SPEC_2_WFS2REQ]	14	LAMP: 4 otrzymal MREQ2 od 20 LAMP: 1!
+6 [SPEC_2_WFS2REQ]	14	wysyla MACK2 do 20!
+wysyla MACK1 do 4!
+7 [SPEC_1_WFM]	7	LAMP: 7 otrzymal MREQ1 od 16 LAMP: 1!
+9 [SPEC_1_WFM]	7	wysyla MACK1 do 16!
+9 [SPEC_1_WFM]	7	LAMP: 9 otrzymal MREQ1 od 19 LAMP: 1!
+11 [SPEC_1_WFM]	7	wysyla MACK1 do 19!
+12 [SPEC_1_WFM]	7 1 0	otrzymal MACK1 od 1 LAMP: 11!
+5 jako specialist 2!
+	20	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+2 [SPEC_2_WFS2REQ]	20	LAMP: 2 otrzymal MREQ2 od 11 LAMP: 1!
+4 [SPEC_2_WFS2REQ]	20	wysyla MACK2 do 11!
+6 [SPEC_2_WFS2REQ]	20 1	otrzymal MACK2 od 2 LAMP: 5!
+6 [SPEC_2_WFS2REQ]	20	LAMP: 6 otrzymal MREQ2 od 14 LAMP: 1!
+8 [SPEC_2_WFS2REQ]	20	wysyla MACK2 do 14!
+9 [SPEC_2_WFS2REQ]	20 2	otrzymal MACK2 od 14 LAMP: 6!
+5 [SPEC_2_WFS2REQ]	2	LAMP: 5 otrzymal MREQ2 od 14 LAMP: 1!
+7 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 14!
+7 [SPEC_2_WFS2REQ]	2	LAMP: 7 otrzymal MREQ2 od 5 LAMP: 1!
+9 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 5!
+12 [SPEC_1_WFM]	1 1 0	otrzymal MACK1 od 7 LAMP: 5!
+8 [SPEC_2_WFS2REQ]	14 1	otrzymal MACK2 od 2 LAMP: 7!
+8 [SPEC_2_WFS2REQ]	14	LAMP: 8 otrzymal MREQ2 od 5 LAMP: 1!
+10 [SPEC_2_WFS2REQ]	14	wysyla MACK2 do 5!
+11 [SPEC_2_WFS2REQ]	14 2	otrzymal MACK2 od 20 LAMP: 8!
+12 [SPEC_2_WFS2REQ]	14 3	otrzymal MACK2 od 5 LAMP: 6!
+12 [SPEC_1_WFM]	16	LAMP: 12 otrzymal MREQ1 od 1 LAMP: 1!
+14 [SPEC_1_WFM]	16	wysyla MACK1 do 1!
+14 [SPEC_1_WFM]	16	LAMP: 14 otrzymal MREQ1 od 7 LAMP: 1!
+16 [SPEC_1_WFM]	16	wysyla MACK1 do 7!
+17 [SPEC_1_WFM]	16 4 0	otrzymal MACK1 od 1 LAMP: 7!
+18 [SPEC_1_WFM]	16 5 0	otrzymal MACK1 od 7 LAMP: 9!
+9 [SPEC_2_WFS2REQ]	20	LAMP: 9 otrzymal MREQ2 od 5 LAMP: 1!
+11 [SPEC_2_WFS2REQ]	20	wysyla MACK2 do 5!
+12 [SPEC_2_WFS2REQ]	20 3	otrzymal MACK2 od 5 LAMP: 8!
+1 [SPEC_2_WFS2REQ]	5	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+2 [SPEC_2_WFS2REQ]	5	LAMP: 2 otrzymal MREQ2 od 11 LAMP: 1!
+4 [SPEC_2_WFS2REQ]	5	wysyla MACK2 do 11!
+4 [SPEC_2_WFS2REQ]	5	LAMP: 4 otrzymal MREQ2 od 14 LAMP: 1!
+6 [SPEC_2_WFS2REQ]	5	wysyla MACK2 do 14!
+6 [SPEC_2_WFS2REQ]	5	LAMP: 6 otrzymal MREQ2 od 20 LAMP: 1!
+8 [SPEC_2_WFS2REQ]	5	wysyla MACK2 do 20!
+10 [SPEC_2_WFS2REQ]	5 1	otrzymal MACK2 od 2 LAMP: 9!
+11 [SPEC_2_WFS2REQ]	5 2	otrzymal MACK2 od 14 LAMP: 10!
+12 [SPEC_2_WFS2REQ]	5 3	otrzymal MACK2 od 20 LAMP: 11!
+8 [SPEC_1_WFM]	13	LAMP: 8 otrzymal MREQ1 od 1 LAMP: 1!
+10 [SPEC_1_WFM]	13	wysyla MACK1 do 1!
+10 [SPEC_1_WFM]	13	LAMP: 10 otrzymal MREQ1 od 7 LAMP: 1!
+12 [SPEC_1_WFM]	13	wysyla MACK1 do 7!
+13 [SPEC_1_WFM]	13 2 0	otrzymal MACK1 od 1 LAMP: 3!
+14 [SPEC_1_WFM]	13 3 0	otrzymal MACK1 od 7 LAMP: 3!
+15 [SPEC_1_WFM]	1 2 0	otrzymal MACK1 od 16 LAMP: 14!
+16 [SPEC_1_WFM]	1 3 0	otrzymal MACK1 od 13 LAMP: 10!
+3 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+1 [SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+3 [SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 6!
+3 [SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+5 [SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 15!
+5 [SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+7 [SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 18!
+8 [SPEC_3_WFS3REQ]	3 1	Odebral MACK3!
+4 [SPEC_3_WFS3REQ]	15	Odebral MREQ3!
+6 [SPEC_3_WFS3REQ]	15	Wysyla MACK3 do 3!
+7 [SPEC_3_WFS3REQ]	15 1	Odebral MACK3!
+13 [SPEC_1_WFM]	7 2 0	otrzymal MACK1 od 13 LAMP: 12!
+17 [SPEC_1_WFM]	7 3 0	otrzymal MACK1 od 16 LAMP: 16!
+17 jako specialist 2!
+1 [SPEC_2_WFS2REQ]	17	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+2 [SPEC_2_WFS2REQ]	17	LAMP: 2 otrzymal MREQ2 od 5 LAMP: 1!
+4 [SPEC_2_WFS2REQ]	17	wysyla MACK2 do 5!
+4 [SPEC_2_WFS2REQ]	17	LAMP: 4 otrzymal MREQ2 od 11 LAMP: 1!
+6 [SPEC_2_WFS2REQ]	17	wysyla MACK2 do 11!
+6 [SPEC_2_WFS2REQ]	17	LAMP: 6 otrzymal MREQ2 od 14 LAMP: 1!
+8 [SPEC_2_WFS2REQ]	17	wysyla MACK2 do 14!
+8 [SPEC_2_WFS2REQ]	17	LAMP: 8 otrzymal MREQ2 od 20 LAMP: 1!
+10 [SPEC_2_WFS2REQ]	17	wysyla MACK2 do 20!
+15 [SPEC_2_WFS2REQ]	17 1	otrzymal MACK2 od 5 LAMP: 14!
+16 [SPEC_2_WFS2REQ]	17 2	otrzymal MACK2 od 2 LAMP: 11!
+12 [SPEC_2_WFS2REQ]	5	LAMP: 12 otrzymal MREQ2 od 17 LAMP: 1!
+14 [SPEC_2_WFS2REQ]	5	wysyla MACK2 do 17!
+15 [SPEC_2_WFS2REQ]	5 4	otrzymal MACK2 od 17 LAMP: 4!
+9 [SPEC_2_WFS2REQ]	2	LAMP: 9 otrzymal MREQ2 od 17 LAMP: 1!
+11 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 17!
+12 [SPEC_2_WFS2REQ]	20	LAMP: 12 otrzymal MREQ2 od 17 LAMP: 1!
+14 [SPEC_2_WFS2REQ]	20	wysyla MACK2 do 17!
+15 [SPEC_2_WFS2REQ]	20 4	otrzymal MACK2 od 17 LAMP: 10!
+1 [SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+3 [SPEC_3_WFS3REQ]	6	Wysyla MACK3 do 18!
+3 [SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+5 [SPEC_3_WFS3REQ]	6	Wysyla MACK3 do 3!
+5 [SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+7 [SPEC_3_WFS3REQ]	6	Wysyla MACK3 do 15!
+8 [SPEC_3_WFS3REQ]	6 1	Odebral MACK3!
+17 [SPEC_2_WFS2REQ]	17 3	otrzymal MACK2 od 20 LAMP: 14!
+14 [SPEC_1_WFM]	13	LAMP: 14 otrzymal MREQ1 od 10 LAMP: 1!
+16 [SPEC_1_WFM]	13	wysyla MACK1 do 10!
+17 [SPEC_1_WFM]	13 4 0	otrzymal MACK1 od 10 LAMP: 3!
+23 [SPEC_1_WFM]	13 5 -1	otrzymal MTAK1 od 16!
+12 [SPEC_1_WFM]	19 2 0	otrzymal MACK1 od 16 LAMP: 9!
+12 [SPEC_1_WFM]	19	LAMP: 12 otrzymal MREQ1 od 1 LAMP: 1!
+14 [SPEC_1_WFM]	19	wysyla MACK1 do 1!
+14 [SPEC_1_WFM]	19	LAMP: 14 otrzymal MREQ1 od 7 LAMP: 1!
+16 [SPEC_1_WFM]	19	wysyla MACK1 do 7!
+17 [SPEC_1_WFM]	19 3 0	otrzymal MACK1 od 1 LAMP: 9!
+18 [SPEC_1_WFM]	19 4 0	otrzymal MACK1 od 7 LAMP: 11!
+18 [SPEC_1_WFM]	19	LAMP: 18 otrzymal MREQ1 od 10 LAMP: 1!
+20 [SPEC_1_WFM]	19	wysyla MACK1 do 10!
+21 [SPEC_1_WFM]	19 5 0	otrzymal MACK1 od 10 LAMP: 13!
+16 [SPEC_1_WFM]	1	LAMP: 16 otrzymal MREQ1 od 10 LAMP: 1!
+18 [SPEC_1_WFM]	1	wysyla MACK1 do 10!
+19 [SPEC_1_WFM]	1 4 0	otrzymal MACK1 od 19 LAMP: 14!
+20 [SPEC_1_WFM]	1 5 0	otrzymal MACK1 od 10 LAMP: 5!
+10 jako specialist 1!
+1 [SPEC_1_WFM]	10	LAMP: 1 otrzymal MREQ1 od 13 LAMP: 1!
+3 [SPEC_1_WFM]	10	wysyla MACK1 do 13!
+3 [SPEC_1_WFM]	10	LAMP: 3 otrzymal MREQ1 od 1 LAMP: 1!
+5 [SPEC_1_WFM]	10	wysyla MACK1 do 1!
+5 [SPEC_1_WFM]	10	LAMP: 5 otrzymal MREQ1 od 4 LAMP: 1!
+7 [SPEC_1_WFM]	10	wysyla MACK1 do 4!
+7 [SPEC_1_WFM]	10	LAMP: 7 otrzymal MREQ1 od 7 LAMP: 1!
+9 [SPEC_1_WFM]	10	wysyla MACK1 do 7!
+9 [SPEC_1_WFM]	10	LAMP: 9 otrzymal MREQ1 od 16 LAMP: 1!
+11 [SPEC_1_WFM]	10	wysyla MACK1 do 16!
+11 [SPEC_1_WFM]	10	LAMP: 11 otrzymal MREQ1 od 19 LAMP: 1!
+13 [SPEC_1_WFM]	10	wysyla MACK1 do 19!
+19 [SPEC_1_WFM]	10 1 0	otrzymal MACK1 od 1 LAMP: 18!
+21 [SPEC_1_WFM]	10 2 0	otrzymal MACK1 od 19 LAMP: 20!
+22 [SPEC_1_WFM]	10 3 0	otrzymal MACK1 od 16 LAMP: 20!
+23 [SPEC_1_WFM]	10 4 0	otrzymal MACK1 od 13 LAMP: 16!
+24 [SPEC_1_WFM]	10 5 -1	otrzymal MTAK1 od 16!
+25 [SPEC_1_WFM]	10 6 -1	otrzymal MACK1 od 7 LAMP: 19!
+24 [SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 16!
+17 [SPEC_1_WFM]	7	LAMP: 17 otrzymal MREQ1 od 10 LAMP: 1!
+19 [SPEC_1_WFM]	7	wysyla MACK1 do 10!
+20 [SPEC_1_WFM]	7 4 0	otrzymal MACK1 od 10 LAMP: 9!
+23 [SPEC_1_WFM]	7 5 -1	otrzymal MTAK1 od 16!
+24 [SPEC_1_WFM]	7 6 -1	otrzymal MACK1 od 19 LAMP: 16!
+18 [SPEC_1_WFM]	16	LAMP: 18 otrzymal MREQ1 od 10 LAMP: 1!
+20 [SPEC_1_WFM]	16	wysyla MACK1 do 10!
+21 [SPEC_1_WFM]	16 6 0	otrzymal MACK1 od 10 LAMP: 11!
+22 [SPEC_1_WFM]	16	Wysyla MTAK1!
+23 [SPEC_1_WFS2]	16	Wysyla S2REQ!
+23 [SPEC_1_WFM]	19 6 -1	otrzymal MTAK1 od 16!
+24 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 16!
+24 [SPEC_2_WFS2REQ]	20	Otrzymal S2REQ od 16!
+23 [SPEC_1_WFM]	1 6 -1	otrzymal MTAK1 od 16!
+12 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	12	Wysyla MREQ3!
+1 [SPEC_3_WFS3REQ]	12	Odebral MREQ3!
+2 [SPEC_3_WFS3REQ]	12	Odebral MREQ3!
+4 [SPEC_3_WFS3REQ]	12	Wysyla MACK3 do 6!
+4 [SPEC_3_WFS3REQ]	12	Odebral MREQ3!
+6 [SPEC_3_WFS3REQ]	12	Wysyla MACK3 do 15!
+6 [SPEC_3_WFS3REQ]	12	Odebral MREQ3!
+8 [SPEC_3_WFS3REQ]	12	Wysyla MACK3 do 18!
+8 [SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+10 [SPEC_3_WFS3REQ]	6	Wysyla MACK3 do 12!
+11 [SPEC_3_WFS3REQ]	12 1	Odebral MACK3!
+2 [SPEC_3_WFS3REQ]	18	Odebral MREQ3!
+4 [SPEC_3_WFS3REQ]	18	Wysyla MACK3 do 15!
+4 [SPEC_3_WFS3REQ]	18	Odebral MREQ3!
+6 [SPEC_3_WFS3REQ]	18	Wysyla MACK3 do 3!
+7 [SPEC_3_WFS3REQ]	18 1	Odebral MACK3!
+7 [SPEC_3_WFS3REQ]	18	Odebral MREQ3!
+9 [SPEC_3_WFS3REQ]	18	Wysyla MACK3 do 12!
+10 [SPEC_3_WFS3REQ]	18 2	Odebral MACK3!
+11 [SPEC_3_WFS3REQ]	18 3	Odebral MACK3!
+12 [SPEC_3_WFS3REQ]	18 4	Odebral MACK3!
+11 [SPEC_3_WFS3REQ]12 [SPEC_3_WFS3REQ]	12 2	Odebral MACK3!
+	8 jako specialist 2!
+1 [SPEC_2_WFS2REQ]	8	LAMP: 1 otrzymal MREQ2 od 2 LAMP: 1!
+2 [SPEC_2_WFS2REQ]	8	LAMP: 2 otrzymal MREQ2 od 5 LAMP: 1!
+4 [SPEC_2_WFS2REQ]	8	wysyla MACK2 do 5!
+4 [SPEC_2_WFS2REQ]	8	LAMP: 4 otrzymal MREQ2 od 11 LAMP: 1!
+6 [SPEC_2_WFS2REQ]	8	wysyla MACK2 do 11!
+6 [SPEC_2_WFS2REQ]	8	LAMP: 6 otrzymal MREQ2 od 14 LAMP: 1!
+8 [SPEC_2_WFS2REQ]	8	wysyla MACK2 do 14!
+8 [SPEC_2_WFS2REQ]	8	LAMP: 8 otrzymal MREQ2 od 17 LAMP: 1!
+10 [SPEC_2_WFS2REQ]	8	wysyla MACK2 do 17!
+10 [SPEC_2_WFS2REQ]	8	LAMP: 10 otrzymal MREQ2 od 20 LAMP: 1!
+12 [SPEC_2_WFS2REQ]	8	wysyla MACK2 do 20!
+27 [SPEC_2_WFS2REQ]	8 1	otrzymal MACK2 od 2 LAMP: 26!
+28 [SPEC_2_WFS2REQ]	8	Otrzymal S2REQ od 16!
+24 [SPEC_2_WFS2REQ]	2	LAMP: 24 otrzymal MREQ2 od 8 LAMP: 1!
+26 [SPEC_2_WFS2REQ]	2	wysyla MACK2 do 8!
+6 2	Odebral MACK3!
+8 [SPEC_3_WFS3REQ]	15 2	Odebral MACK3!
+8 [SPEC_3_WFS3REQ]	15	Odebral MREQ3!
+10 [SPEC_3_WFS3REQ]	15	Wysyla MACK3 do 12!
+11 [SPEC_3_WFS3REQ]	15 3	Odebral MACK3!
+12 [SPEC_3_WFS3REQ]	15 4	Odebral MACK3!
+26 [SPEC_1_WFM]	13 6 -2	otrzymal MTAK1 od 1!
+27 [SPEC_1_WFM]	13 7 -3	otrzymal MTAK1 od 19!
+24 [SPEC_1_WFM]	19 7 -1	otrzymal MACK1 od 4 LAMP: 8!
+25 [SPEC_1_WFM]	19	Wysyla MTAK1!
+26 [SPEC_1_WFS2]	19	Wysyla S2REQ!
+27 [SPEC_1_WFT]	19	Otrzymuje MTAK1 od 1!
+24 [SPEC_1_WFM]	1 7 -1	otrzymal MACK1 od 4 LAMP: 10!
+25 [SPEC_1_WFM]	1	Wysyla MTAK1!
+26 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+27 [SPEC_1_WFT]	1	Otrzymuje MTAK1 od 19!
+6 [SPEC_1_WFM]	4	LAMP: 6 otrzymal MREQ1 od 19 LAMP: 1!
+8 [SPEC_1_WFM]	4	wysyla MACK1 do 19!
+8 [SPEC_1_WFM]	4	LAMP: 8 otrzymal MREQ1 od 1 LAMP: 1!
+10 [SPEC_1_WFM]	4	wysyla MACK1 do 1!
+10 [SPEC_1_WFM]	4	LAMP: 10 otrzymal MREQ1 od 7 LAMP: 1!
+12 [SPEC_1_WFM]	4	wysyla MACK1 do 7!
+12 [SPEC_1_WFM]	4	LAMP: 12 otrzymal MREQ1 od 10 LAMP: 1!
+14 [SPEC_1_WFM]	4	wysyla MACK1 do 10!
+23 [SPEC_1_WFM]	4 2 -1	otrzymal MTAK1 od 16!
+24 [SPEC_1_WFM]	4 3 -1	otrzymal MACK1 od 19 LAMP: 4!
+25 [SPEC_1_WFM]	4 4 -1	otrzymal MACK1 od 1 LAMP: 5!
+26 [SPEC_1_WFM]	4 5 -1	otrzymal MACK1 od 7 LAMP: 7!
+27 [SPEC_1_WFM]	4 6 -1	otrzymal MACK1 od 10 LAMP: 7!
+28 [SPEC_1_WFM]	4 7 -2	otrzymal MTAK1 od 1!
+29 [SPEC_1_WFM]	4 8 -3	otrzymal MTAK1 od 19!
+24 [SPEC_2_WFS2REQ]	5	LAMP: 24 otrzymal MREQ2 od 8 LAMP: 1!
+26 [SPEC_2_WFS2REQ]	5	wysyla MACK2 do 8!
+27 [SPEC_2_WFS2REQ]	5 5	otrzymal MACK2 od 8 LAMP: 4!
+28 [SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 1!
+29 [SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 19!
+25 [SPEC_1_WFM]26 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 19!
+27 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 1!
+28 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 7!
+28 [SPEC_1_WFM]	13 8 -4	otrzymal MTAK1 od 7!
+12 [SPEC_2_WFS2REQ]	14	LAMP: 12 otrzymal MREQ2 od 8 LAMP: 1!
+14 [SPEC_2_WFS2REQ]	14	wysyla MACK2 do 8!
+14 [SPEC_2_WFS2REQ]	14	LAMP: 14 otrzymal MREQ2 od 17 LAMP: 1!
+16 [SPEC_2_WFS2REQ]	14	wysyla MACK2 do 17!
+27 [SPEC_2_WFS2REQ]	14	Otrzymal S2REQ od 1!
+28 [SPEC_2_WFS2REQ]	14	Otrzymal S2REQ od 7!
+29 [SPEC_2_WFS2REQ]	14 4	otrzymal MACK2 od 8 LAMP: 8!
+30 [SPEC_2_WFS2REQ]	14	Otrzymal S2REQ od 16!
+31 [SPEC_2_WFS2REQ]	14 5	otrzymal MACK2 od 17 LAMP: 8!
+32 [SPEC_2_WFS2REQ]	14	Otrzymal S2REQ od 19!
+27 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+28 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 19!
+29 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 7!
+24 [SPEC_2_WFS2REQ]	20	LAMP: 24 otrzymal MREQ2 od 8 LAMP: 1!
+26 [SPEC_2_WFS2REQ]	20	wysyla MACK2 do 8!
+27 [SPEC_2_WFS2REQ]	20 5	otrzymal MACK2 od 8 LAMP: 12!
+28 [SPEC_2_WFS2REQ]	20	Otrzymal S2REQ od 19!
+29 [SPEC_2_WFS2REQ]	20	Otrzymal S2REQ od 1!
+30 [SPEC_2_WFS2REQ]	20	Otrzymal S2REQ od 7!
+28 [SPEC_1_WFT]	1	Otrzymuje MTAK1 od 7!
+30 [SPEC_1_WFM]	4 9 -4	otrzymal MTAK1 od 7!
+30 [SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 7!
+	7 7 -1	otrzymal MACK1 od 4 LAMP: 12!
+26 [SPEC_1_WFM]	7	Wysyla MTAK1!
+27 [SPEC_1_WFS2]	7	Wysyla S2REQ!
+28 [SPEC_1_WFT]	7	Otrzymuje MTAK1 od 1!
+29 [SPEC_1_WFT]	7	Otrzymuje MTAK1 od 19!
+1 [SPEC_3_WFS3REQ]	9	Odebral MREQ3!
+2 [SPEC_3_WFS3REQ]	9	Odebral MREQ3!
+4 [SPEC_3_WFS3REQ]	9	Wysyla MACK3 do 6!
+4 [SPEC_3_WFS3REQ]	9	Odebral MREQ3!
+6 [SPEC_3_WFS3REQ]28 [SPEC_1_WFT]	19	Otrzymuje MTAK1 od 7!
+9 [SPEC_3_WFS3REQ]	3 2	Odebral MACK3!
+9 [SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+11 [SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 9!
+11 [SPEC_3_WFS3REQ]	3	Odebral MREQ3!
+13 [SPEC_3_WFS3REQ]	3	Wysyla MACK3 do 12!
+14 [SPEC_3_WFS3REQ]	3 3	Odebral MACK3!
+	9	Wysyla MACK3 do 12!
+6 [SPEC_3_WFS3REQ]	9	Odebral MREQ3!
+8 [SPEC_3_WFS3REQ]	9	Wysyla MACK3 do 15!
+8 [SPEC_3_WFS3REQ]	9	Odebral MREQ3!
+10 [SPEC_3_WFS3REQ]	9	Wysyla MACK3 do 18!
+12 [SPEC_3_WFS3REQ]	9 1	Odebral MACK3!
+12 [SPEC_3_WFS3REQ]	15	Odebral MREQ3!
+14 [SPEC_3_WFS3REQ]	14 [SPEC_3_WFS3REQ]	12 3	Odebral MACK3!
+14 [SPEC_3_WFS3REQ]	12	Odebral MREQ3!
+16 [SPEC_3_WFS3REQ]	12	Wysyla MACK3 do 9!
+17 [SPEC_3_WFS3REQ]	12 4	Odebral MACK3!
+18 [SPEC_3_WFS3REQ]	12 5	Odebral MACK3!
+15	Wysyla MACK3 do 9!
+15 [SPEC_3_WFS3REQ]	15 5	Odebral MACK3!
+11 [SPEC_3_WFS3REQ]	6	Odebral MREQ3!
+13 [SPEC_3_WFS3REQ]	6	Wysyla MACK3 do 9!
+14 [SPEC_3_WFS3REQ]	6 3	Odebral MACK3!
+15 [SPEC_3_WFS3REQ]	9 2	Odebral MACK3!
+16 [SPEC_3_WFS3REQ]	9 3	Odebral MACK3!
+17 [SPEC_3_WFS3REQ]	9 4	Odebral MACK3!
+17 [SPEC_2_WFS2REQ]	17	LAMP: 17 otrzymal MREQ2 od 8 LAMP: 1!
+19 [SPEC_2_WFS2REQ]	17	wysyla MACK2 do 8!
+20 [SPEC_2_WFS2REQ]	17 4	otrzymal MACK2 od 14 LAMP: 16!
+28 [SPEC_2_WFS2REQ]	17	Otrzymal S2REQ od 7!
+29 [SPEC_2_WFS2REQ]	17 5	otrzymal MACK2 od 8 LAMP: 10!
+30 [SPEC_2_WFS2REQ]	17	Otrzymal S2REQ od 16!
+31 [SPEC_2_WFS2REQ]	17	Otrzymal S2REQ od 19!
+32 [SPEC_2_WFS2REQ]	17	Otrzymal S2REQ od 1!
+Liczba procesow: 21!
+Liczba specjalistow 1: 7
+Liczba specjalistow 2: 7
+Liczba specjalistow 3: 6
+0 jako employer!
+29 [SPEC_2_WFS2REQ]	8 2	otrzymal MACK2 od 17 LAMP: 19!
+30 [SPEC_2_WFS2REQ]	8 3	otrzymal MACK2 od 20 LAMP: 26!
+31 [SPEC_2_WFS2REQ]	8	Otrzymal S2REQ od 1!
+32 [SPEC_2_WFS2REQ]	8 4	otrzymal MACK2 od 5 LAMP: 26!
+33 [SPEC_2_WFS2REQ]	8 5	otrzymal MACK2 od 14 LAMP: 14!
+34 [SPEC_2_WFS2REQ]	8	Otrzymal S2REQ od 19!
+35 [SPEC_2_WFS2REQ]	8	Otrzymal S2REQ od 7!
+12 [SPEC_3_WFS3REQ]	18	Odebral MREQ3!
+14 [SPEC_3_WFS3REQ]	18	Wysyla MACK3 do 9!
+15 [SPEC_3_WFS3REQ]	18 5	Odebral MACK3!
+26 [SPEC_1_WFM]	10 7 -1	otrzymal MACK1 od 4 LAMP: 14!
+27 [SPEC_1_WFM]	10	Wysyla MTAK1!
+28 [SPEC_1_WFS2]	10	Wysyla S2REQ!
+29 [SPEC_1_WFT]	10	Otrzymuje MTAK1 od 7!
+30 [SPEC_1_WFT]	10	Otrzymuje MTAK1 od 19!
+31 [SPEC_1_WFT]	10	Otrzymuje MTAK1 od 1!
+18 [SPEC_3_WFS3REQ]	9 5	Odebral MACK3!
+29 [SPEC_1_WFT]	1	Otrzymuje MTAK1 od 10!
+29 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 10!
+30 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 10!
+31 [SPEC_1_WFM]	4 10 -5	otrzymal MTAK1 od 10!
+30 [SPEC_1_WFT]	7	Otrzymuje MTAK1 od 10!
+33 [SPEC_2_WFS2REQ]	14	Otrzymal S2REQ od 10!
+29 [SPEC_1_WFM]	13 9 -5	otrzymal MTAK1 od 10!
+29 [SPEC_1_WFT]	19	Otrzymuje MTAK1 od 10!
+33 [SPEC_2_WFS2REQ]	17	Otrzymal S2REQ od 10!
+31 [SPEC_2_WFS2REQ]	5	Otrzymal S2REQ od 10!
+36 [SPEC_2_WFS2REQ]	8	Otrzymal S2REQ od 10!
+31 [SPEC_2_WFS2REQ]	20	Otrzymal S2REQ od 10!
+1 [SPEC_2_WFS2REQ]	11	LAMP: 1 otrzymal MREQ2 od 17 LAMP: 1!
+3 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 17!
+3 [SPEC_2_WFS2REQ]	11	LAMP: 3 otrzymal MREQ2 od 20 LAMP: 1!
+5 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 20!
+5 [SPEC_2_WFS2REQ]	11	LAMP: 5 otrzymal MREQ2 od 2 LAMP: 1!
+7 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 2!
+7 [SPEC_2_WFS2REQ]	11	LAMP: 7 otrzymal MREQ2 od 5 LAMP: 1!
+9 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 5!
+9 [SPEC_2_WFS2REQ]	11	LAMP: 9 otrzymal MREQ2 od 14 LAMP: 1!
+11 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 14!
+12 [SPEC_2_WFS2REQ]	11 1	otrzymal MACK2 od 17 LAMP: 6!
+13 [SPEC_2_WFS2REQ]	11 2	otrzymal MACK2 od 20 LAMP: 4!
+14 [SPEC_2_WFS2REQ]	11 3	otrzymal MACK2 od 2 LAMP: 3!
+15 [SPEC_2_WFS2REQ]	11 4	otrzymal MACK2 od 5 LAMP: 4!
+16 [SPEC_2_WFS2REQ]	11 5	otrzymal MACK2 od 14 LAMP: 4!
+24 [SPEC_2_WFS2REQ]	11	Otrzymal S2REQ od 16!
+24 [SPEC_2_WFS2REQ]	11	LAMP: 24 otrzymal MREQ2 od 8 LAMP: 1!
+26 [SPEC_2_WFS2REQ]	11	wysyla MACK2 do 8!
+27 [SPEC_2_WFS2REQ]	11	Otrzymal S2REQ od 19!
+28 [SPEC_2_WFS2REQ]	11	Otrzymal S2REQ od 1!
+29 [SPEC_2_WFS2REQ]	11	Otrzymal S2REQ od 7!
+30 [SPEC_2_WFS2REQ]	11 6	otrzymal MACK2 od 8 LAMP: 6!
+31 [SPEC_2_WFS2REQ]	11	Wysyla MTAK2 zabiera proces 1!
+32 [SPEC_2_WFS3]	11	Wysyla S3REQ!
+33 [SPEC_2_WFT]	11	Otrzymuje S2REQ od 10!
+36 [SPEC_2_WFT]	11	Otrzymuje TREADY od 15 (1 11 15)!
+36 [SPEC_2_WFT]	11	Otrzymuje FTREADY od 15!
+39 [SPEC_2_WFS]	11	Otrzymuje RREADY od 15!
+31 [SPEC_2_WFS2REQ]	2 1	otrzymal MACK2 od 11 LAMP: 7!
+32 [SPEC_2_WFS2REQ]	2 2	otrzymal MTAK2 od 11!
+33 [SPEC_3_WFS3REQ]	15	Odebral S3REQ!
+34 [SPEC_3_WFS3REQ]	15	Wysyla MTAK3 zabiera proces 11!
+35 [SPEC_3_RTR]	15	Wysyla TREADY do 11!
+37 [SPEC_3_WFSTREDY]	15	Odebral FTREADY (1 11 15)!
+38 [SPEC_3_PFR]	15	Wysyla RREADY do 1!
+38 [SPEC_3_PFR]	15	Wysyla RREADY do 11!
+33 [SPEC_3_WFS3REQ]	6	Odebral S3REQ!
+35 [SPEC_3_WFS3REQ]	6 4	Odebral MTAK3!
+39 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+34 [SPEC_2_WFS2REQ]	2 3	otrzymal MTAK2 od 5!
+32 [SPEC_2_WFS2REQ]	5 6	otrzymal MACK2 od 11 LAMP: 9!
+33 [SPEC_2_WFS2REQ]	5	Wysyla MTAK2 zabiera proces 1!
+34 [SPEC_2_WFS3]	5	Wysyla S3REQ!
+35 [SPEC_2_WFT]	5	Otrzymuje MTAK2 od 11!
+40 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 5!
+33 [SPEC_3_WFS3REQ]	18	Odebral S3REQ!
+34 [SPEC_3_WFS3REQ]	18	Wysyla MTAK3 zabiera proces 11!
+35 [SPEC_3_RTR]	18	Wysyla TREADY do 11!
+36 [SPEC_3_WFSTREDY]	18	Odebral MTAK3!
+37 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+36 [SPEC_3_WFS3REQ]	6	Odebral S3REQ!
+37 [SPEC_3_WFS3REQ]	6 5	Odebral MTAK3!
+38 [SPEC_3_WFS3REQ]	6	Wysyla MTAK3 zabiera proces 5!
+39 [SPEC_3_WFSTREDY]	18	Odebral MTAK3!
+39 [SPEC_3_RTR]	6	Wysyla TREADY do 5!
+40 [SPEC_3_RESSURECT]	15	Odebral MTAK3!
+41 [SPEC_3_RESSURECT]	15	Odebral MTAK3!
+40 [SPEC_2_WFT]	5	Otrzymuje TREADY od 6 (1 5 6)!
+40 [SPEC_2_WFT]	5	Otrzymuje FTREADY od 6!
+41 [SPEC_3_WFSTREDY]	6	Odebral FTREADY (1 5 6)!
+42 [SPEC_3_PFR]	6	Wysyla RREADY do 1!
+42 [SPEC_3_PFR]	6	Wysyla RREADY do 5!
+37 [SPEC_1_WFT]	1	Otrzymuje TREADY od 11 (1 11 15)!
+39 [SPEC_1_WFTABLE]	1	Otrzymuje RREADY od 15!
+43 [SPEC_1_WFTABLE]	1	Otrzymuje RREADY od 6!
+33 [SPEC_3_WFS3REQ]	43 [SPEC_2_WFS]	5	Otrzymuje RREADY od 6!
+9	Odebral S3REQ!
+34 [SPEC_3_WFS3REQ]	9	Wysyla MTAK3 zabiera proces 11!
+35 [SPEC_3_RTR]	9	Wysyla TREADY do 11!
+36 [SPEC_3_WFSTREDY]	9	Odebral MTAK3!
+37 [SPEC_3_WFSTREDY]	9	Odebral MTAK3!
+39 [SPEC_3_WFSTREDY]	9	Odebral MTAK3!
+40 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+43 [SPEC_3_RESSURECT]	6	Odebral MTAK3!
+44 [SPEC_3_RESSURECT]	6	Odebral S3REQ!
+32 [SPEC_2_WFS2REQ]	20 6	otrzymal MACK2 od 11 LAMP: 5!
+33 [SPEC_2_WFS2REQ]	20	Wysyla MTAK2 zabiera proces 1!
+34 [SPEC_2_WFS3]	20	Wysyla S3REQ!
+35 [SPEC_2_WFT]	20	Otrzymuje MTAK2 od 11!
+36 [SPEC_2_WFT]	20	Otrzymuje MTAK2 od 5!
+40 [SPEC_3_WFSTREDY]	18	Odebral MTAK3!
+41 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+35 [SPEC_2_WFS2REQ]	2 4	otrzymal MTAK2 od 20!
+44 [SPEC_2_WFS]	5	Otrzymuje MTAK2 od 20!
+41 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+42 [SPEC_3_RESSURECT]	15	Odebral MTAK3!
+43 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+37 [SPEC_2_WFS2REQ]	8 6	otrzymal MACK2 od 11 LAMP: 26!
+38 [SPEC_2_WFS2REQ]	8	Wysyla MTAK2 zabiera proces 1!
+39 [SPEC_2_WFS3]	8	Wysyla S3REQ!
+40 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 11!
+41 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 20!
+42 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 5!
+39 [SPEC_2_WFT]	20	Otrzymuje MTAK2 od 8!
+42 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+45 [SPEC_3_RESSURECT]	6	Odebral S3REQ!
+39 [SPEC_2_WFS2REQ]	2 5	otrzymal MTAK2 od 8!
+42 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+44 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+45 [SPEC_2_WFS]	5	Otrzymuje MTAK2 od 8!
+33 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+35 [SPEC_3_WFS3REQ]	3 4	Odebral MTAK3!
+36 [SPEC_3_WFS3REQ]	3 5	Odebral MTAK3!
+39 [SPEC_3_WFS3REQ]	3 6	Odebral MTAK3!
+40 [SPEC_3_WFS3REQ]	3 7	Odebral MTAK3!
+41 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+42 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 20!
+43 [SPEC_3_RTR]	3	Wysyla TREADY do 20!
+44 [SPEC_3_WFSTREDY]	3	Odebral S3REQ!
+45 [SPEC_3_WFSTREDY]	3	Odebral S3REQ!
+43 [SPEC_3_WFSTREDY]	9	Odebral MTAK3!
+34 [SPEC_2_WFS2REQ]	17 6	otrzymal MACK2 od 11 LAMP: 3!
+35 [SPEC_2_WFS2REQ]	17	Wysyla MTAK2 zabiera proces 1!
+36 [SPEC_2_WFS3]	17	Wysyla S3REQ!
+37 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 11!
+38 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 20!
+39 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 5!
+40 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 8!
+44 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+40 [SPEC_2_WFT]	20	Otrzymuje MTAK2 od 17!
+44 [SPEC_2_WFT]	20	Otrzymuje TREADY od 3 (1 20 3)!
+44 [SPEC_2_WFT]	20	Otrzymuje FTREADY od 3!
+45 [SPEC_3_RESSURECT]	15	Odebral MTAK3!
+46 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+45 [SPEC_2_WFS]	20	Otrzymuje MTAK2 od 14!
+34 [SPEC_2_WFS2REQ]	14 6	otrzymal MACK2 od 11 LAMP: 11!
+35 [SPEC_2_WFS2REQ]	14	Wysyla MTAK2 zabiera proces 1!
+36 [SPEC_2_WFS3]	14	Wysyla S3REQ!
+37 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 11!
+38 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 17!
+39 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 20!
+40 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 5!
+41 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 8!
+45 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+46 [SPEC_2_WFS]	5	Otrzymuje MTAK2 od 17!
+47 [SPEC_2_WFS]	5	Otrzymuje MTAK2 od 14!
+48 [SPEC_2_WFS]	5	Otrzymuje MTAK2 od 2!
+40 [SPEC_2_WFS2REQ]	2 6	otrzymal MTAK2 od 17!
+41 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 7!
+42 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+43 [SPEC_2_WFT]	2	Otrzymuje MTAK2 od 14!
+42 [SPEC_2_WFT]	14	Otrzymuje MTAK2 od 2!
+47 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+48 [SPEC_3_RESSURECT]	15	Odebral S3REQ!
+43 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 14!
+44 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 17!
+45 [SPEC_2_WFT]	8	Otrzymuje MTAK2 od 2!
+46 [SPEC_2_WFS]	20	Otrzymuje MTAK2 od 2!
+46 [SPEC_3_WFSTREDY]	9	Odebral S3REQ!
+46 [SPEC_3_RESSURECT]	6	Odebral MTAK3!
+47 [SPEC_3_RESSURECT]	6	Odebral S3REQ!
+48 [SPEC_3_RESSURECT]	6	Odebral S3REQ!
+49 [SPEC_3_RESSURECT]	6	Odebral S3REQ!
+43 [SPEC_3_WFSTREDY]	18	Odebral MTAK3!
+44 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+45 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+46 [SPEC_3_WFSTREDY]	18	Odebral S3REQ!
+47 [SPEC_3_WFSTREDY]	9	Odebral MTAK3!
+33 [SPEC_3_WFS3REQ]	12	Odebral S3REQ!
+34 [SPEC_3_WFS3REQ]	12	Wysyla MTAK3 zabiera proces 11!
+35 [SPEC_3_RTR]	12	Wysyla TREADY do 11!
+36 [SPEC_3_WFSTREDY]	12	Odebral MTAK3!
+37 [SPEC_3_WFSTREDY]	12	Odebral MTAK3!
+43 [SPEC_3_WFSTREDY]	12	Odebral MTAK3!
+44 [SPEC_3_WFSTREDY]	12	Odebral MTAK3!
+45 [SPEC_3_WFSTREDY]	12	Odebral MTAK3!
+46 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+47 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+48 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+49 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+50 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+51 [SPEC_3_WFSTREDY]	12	Odebral S3REQ!
+49 [SPEC_3_RESSURECT]	15	Odebral MTAK3!
+46 [SPEC_3_WFSTREDY]	3	Odebral MTAK3!
+47 [SPEC_3_WFSTREDY]	3	Odebral S3REQ!
+48 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 20 3)!
+49 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+49 [SPEC_3_PFR]	3	Wysyla RREADY do 20!
+50 [SPEC_3_RESSURECT]	3	Odebral S3REQ!
+51 [SPEC_3_RESSURECT]	3	Odebral S3REQ!
+50 [SPEC_2_WFS]	20	Otrzymuje RREADY od 3!
+50 [SPEC_3_RESSURECT]	6	Odebral MTAK3!
+47 [SPEC_3_WFSTREDY]	18	Odebral MTAK3!
+41 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 14!
+42 [SPEC_2_WFT]	17	Otrzymuje MTAK2 od 2!
+50 [SPEC_1_WFTABLE]	1	Otrzymuje RREADY od 3!
+41 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 20!
+42 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 8!
+43 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 14!
+44 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 17!
+45 [SPEC_2_WFS]	11	Otrzymuje MTAK2 od 2!
+37 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+51 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+35 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+43 [SPEC_1_WFM]	4 10 -4	Otrzymal MISSION od 0!
+44 [SPEC_1_WFM]	4	Wysyla MTAK1!
+45 [SPEC_1_WFS2]	4	Wysyla S2REQ!
+49 [SPEC_2_WFS]	5	Otrzymuje S2REQ od 4!
+46 [SPEC_2_WFT]	2	Otrzymuje S2REQ od 4!
+52 [SPEC_1_WFTABLE]	1	Otrzymuje MTAK1 od 4!
+45 [SPEC_1_WFT]	10	Otrzymuje MTAK1 od 4!
+45 [SPEC_1_WFT]	19	Otrzymuje MTAK1 od 4!
+43 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+45 [SPEC_1_WFT]	7	Otrzymuje MTAK1 od 4!
+46 [SPEC_2_WFT]	17	Otrzymuje S2REQ od 4!
+46 [SPEC_2_WFT]	14	Otrzymuje S2REQ od 4!
+51 [SPEC_2_WFS]	20	Otrzymuje S2REQ od 4!
+35 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+45 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 4!
+35 [SPEC_1_WFM]	13 9 -4	Otrzymal MISSION od 0!
+45 [SPEC_1_WFM]	13 10 -5	otrzymal MTAK1 od 4!
+46 [SPEC_2_WFS]	11	Otrzymuje S2REQ od 4!
+46 [SPEC_2_WFT]	8	Otrzymuje S2REQ od 4!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+46 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+46 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+46 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+46 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+46 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+46 [SPEC_1_WFM]	13 10 -4	Otrzymal MISSION od 0!
+47 [SPEC_1_WFM]	13	Wysyla MTAK1!
+48 [SPEC_1_WFS2]	13	Wysyla S2REQ!
+48 [SPEC_1_WFT]	19	Otrzymuje MTAK1 od 13!
+49 [SPEC_2_WFT]	8	Otrzymuje S2REQ od 13!
+48 [SPEC_1_WFT]	7	Otrzymuje MTAK1 od 13!
+52 [SPEC_2_WFS]	20	Otrzymuje S2REQ od 13!
+48 [SPEC_1_WFT]	10	Otrzymuje MTAK1 od 13!
+50 [SPEC_2_WFS]	5	Otrzymuje S2REQ od 13!
+54 [SPEC_1_WFTABLE]	1	Otrzymuje MTAK1 od 13!
+48 [SPEC_1_WFT]	4	Otrzymuje MTAK1 od 13!
+49 [SPEC_2_WFT]	14	Otrzymuje S2REQ od 13!
+48 [SPEC_1_WFT]	16	Otrzymuje MTAK1 od 13!
+49 [SPEC_2_WFT]	2	Otrzymuje S2REQ od 13!
+49 [SPEC_2_WFS]	11	Otrzymuje S2REQ od 13!
+49 [SPEC_2_WFT]	17	Otrzymuje S2REQ od 13!
+55 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+49 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+49 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+49 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+49 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+49 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+49 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+50 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+50 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+50 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+50 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+50 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+50 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+51 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+51 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+51 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+51 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+51 [SPEC_1_WFT]	19	51 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+Otrzymuje MISSION od 0!
+57 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+52 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+52 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+52 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+52 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+58 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+52 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+52 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+53 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+53 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+54 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+54 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+54 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+54 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+54 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+54 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+55 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+55 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+55 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+55 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+55 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+55 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+56 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+56 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+57 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+63 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+57 [SPEC_1_WFT]57 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+	7	Otrzymuje MISSION od 0!
+57 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+57 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+57 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+58 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+58 [SPEC_1_WFT]58 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+58 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+	19	Otrzymuje MISSION od 0!
+58 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+58 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+59 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+59 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+60 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+60 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+61 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+67 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+61 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+68 [SPEC_1_WFTABLE]	62 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+1	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+62 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+63 [SPEC_1_WFT]69 [SPEC_1_WFTABLE]63 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+	1	Otrzymuje MISSION od 0!
+	13	Otrzymuje MISSION od 0!
+63 [SPEC_1_WFT]63 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+	63 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+4	Otrzymuje MISSION od 0!
+63 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+64 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+70 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+64 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+65 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+71 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+65 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+66 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+72 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+66 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+67 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+67 [SPEC_1_WFT]67 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+67 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+73 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+	10	Otrzymuje MISSION od 0!
+67 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+67 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+68 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+68 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+68 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+68 [SPEC_1_WFT]68 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+68 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+	16	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+69 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+69 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+69 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+69 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+69 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+69 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+76 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+70 [SPEC_1_WFT]	16	70 [SPEC_1_WFT]70 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+Otrzymuje MISSION od 0!
+	4	Otrzymuje MISSION od 0!
+70 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+70 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+70 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+71 [SPEC_1_WFT]	71 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+10	Otrzymuje MISSION od 0!
+71 [SPEC_1_WFT]	777 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+	Otrzymuje MISSION od 0!
+71 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+71 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+71 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+72 [SPEC_1_WFT]72 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+72 [SPEC_1_WFT]78 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+72 [SPEC_1_WFT]	7	4	Otrzymuje MISSION od 0!
+	Otrzymuje MISSION od 0!
+	72 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+16	Otrzymuje MISSION od 0!
+72 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+73 [SPEC_1_WFT]73 [SPEC_1_WFT]	73 [SPEC_1_WFT]73 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+73 [SPEC_1_WFT]7	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+	4	Otrzymuje MISSION od 0!
+73 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+	19	Otrzymuje MISSION od 0!
+	10	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+74 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+80 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+74 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+81 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+75 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+76 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+76 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+76 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+76 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+76 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+76 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+77 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+77 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+77 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+77 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+77 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+77 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+78 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+78 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+78 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+78 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+78 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+78 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+79 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+85 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+79 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+80 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+80 [SPEC_1_WFT]	80 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+7	Otrzymuje MISSION od 0!
+80 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+80 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+80 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+81 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+81 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+81 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+81 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+81 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+81 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+82 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+88 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+82 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+83 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+89 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+83 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+84 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+90 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+84 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+85 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+85 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+85 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+85 [SPEC_1_WFT]85 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+85 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+	4	Otrzymuje MISSION od 0!
+91 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+92 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+86 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	16	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	19	Otrzymuje MISSION od 0!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+93 [SPEC_1_WFTABLE]	1	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	10	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	7	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	4	Otrzymuje MISSION od 0!
+87 [SPEC_1_WFT]	13	Otrzymuje MISSION od 0!

@@ -12,6 +12,7 @@ class Specialist_1: public Thread{
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
+            if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MREQ1!\n", this->data.lamport_clock_value,this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, MREQ1 ,MPI_COMM_WORLD);
@@ -132,6 +133,7 @@ class Specialist_1: public Thread{
         MPI_Status status;
         int message;
         int message_buffor[4];
+        if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tWysyla TREQ!\n", this->data.lamport_clock_value,this->process_id);
         for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, TREQ ,MPI_COMM_WORLD);
