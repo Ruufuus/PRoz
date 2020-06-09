@@ -87,7 +87,7 @@ class Specialist_1: public Thread{
             if(status.MPI_TAG == S2IFREQ){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                 int mes_tab[2] = {this->data.lamport_clock_value, this->process_id};
-                if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tWysyla S2REQ do %d!\n",this->process_id,status.MPI_SOURCE);
+                if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tWysyla S2REQ do %d!\n",this->data.lamport_clock_value,this->process_id,status.MPI_SOURCE);
                 MPI_Send(&mes_tab, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
             }else if(status.MPI_TAG == RREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
@@ -158,7 +158,7 @@ class Specialist_1: public Thread{
                     if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tLAMP: %d Otrzymuje TREQ od %d LAMP: %d!\n",this->data.lamport_clock_value+1,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("[SPEC_1_WFT]\t%d\tWysyla TACK do %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
+                    if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tWysyla TACK do %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
                     MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, TACK ,MPI_COMM_WORLD);
                 }else{
                     if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tLAMP: %d Otrzymuje TREQ od %d LAMP: %d!\n",this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
