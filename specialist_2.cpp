@@ -12,6 +12,8 @@ class Specialist_2: public Thread{
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
+            int request_priority = this->data.lamport_clock_value;
+            if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\tWysyla MREQ2!\n", this->data.lamport_clock_value,this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, MREQ2 ,MPI_COMM_WORLD);
@@ -62,8 +64,8 @@ class Specialist_2: public Thread{
                 else if(status.MPI_TAG == MREQ2){
                     if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\tLAMP: %d otrzymal MREQ2 od %d LAMP: %d!\n", this->data.lamport_clock_value,process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
                         if(ack_count < this->data.expert_count -1){
-                        if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                        || (this->data.lamport_clock_value>message_buffor[0])){
+                        if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                        || (request_priority>message_buffor[0])){
                             this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                             message = this->data.lamport_clock_value;
                             if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
@@ -147,6 +149,12 @@ class Specialist_2: public Thread{
         MPI_Status status;
         int message;
         int message_buffor[4];
+        int request_priority = this->data.lamport_clock_value;
+        if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKREQ!\n", this->data.lamport_clock_value,this->process_id);
+        for(int i = 0; i<process_count; i++){
+            if(process_id == i) continue;
+            MPI_Send(&message, 1, MPI_INT, i, SKREQ ,MPI_COMM_WORLD);
+        }
         while(is_skeleton){
             if(skack_count >= this->data.expert_count - this->data.initial_skeleton_count){
                 this->data.lamport_clock_value+=1;
@@ -174,8 +182,8 @@ class Specialist_2: public Thread{
             else if(status.MPI_TAG == SKREQ){
                 if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tLAMP: %d Otrzymuje SKERQ od %d LAMP: %d!\n", this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
                 if(skack_count < this->data.expert_count - this->data.initial_skeleton_count){
-                    if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                    || (this->data.lamport_clock_value>message_buffor[0])){
+                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                    || (request_priority>message_buffor[0])){
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                         message = this->data.lamport_clock_value;
                         if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
