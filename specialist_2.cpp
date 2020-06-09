@@ -38,6 +38,7 @@ class Specialist_2: public Thread{
                         }
                     }
                     if(is_free)break;
+                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tBrak specjalistow nr1 szukajacych!\n",this->process_id);
                     
                 }
                 MPI_Status status;
@@ -51,7 +52,7 @@ class Specialist_2: public Thread{
                     this->process_list[message_buffor[1]]-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count += 1;
-                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\totrzymal MTAK2 od %d!\n",process_id,status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d %d\totrzymal MTAK2 od %d!\n",process_id,ack_count,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == SKREQ){
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
@@ -74,7 +75,7 @@ class Specialist_2: public Thread{
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     }
                 }else if(status.MPI_TAG == MACK2){
-                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\totrzymal MACK2 od %d LAMP: %d!\n",process_id,status.MPI_SOURCE, message_buffor[0]);
+                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d %d\totrzymal MACK2 od %d LAMP: %d!\n",process_id,ack_count+1,status.MPI_SOURCE, message_buffor[0]);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count+=1;
                 }
@@ -153,7 +154,7 @@ class Specialist_2: public Thread{
                     MPI_Send(&message, 1, MPI_INT, i, SKACK ,MPI_COMM_WORLD);
                 }
                 if(DEBUG)printf("[SPEC_2_WFS]]\t%d\tZaczyna brac szkielet!\n",this->process_id);
-                sleep(3);
+                sleep(rand()%5+1);
                 if(DEBUG)printf("[SPEC_2_WFS]\t%d\tKonczy brac szkielet!\n",this->process_id);
                 break;
             }
@@ -214,7 +215,7 @@ class Specialist_2: public Thread{
                     if(team_ready_counter == 2)
                     {
                         if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                        sleep(5);
+                        sleep(rand()%1+1);
                         if(DEBUG)printf("[SPEC_2_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                         break;
                         }

@@ -22,7 +22,6 @@ class Specialist_3: public Thread {
             int ack_count = 0;
             int message_tak[2];
             while(!is_S3REQ){
-                printf("[SPEC_3_WFS3REQ]\t%d\tack_count\t%d!\n",this->process_id,ack_count);
                 if(ack_count >= this->data.expert_count - 1){
                     bool is_free = false;
                     for(int i = 0; i<this->process_count; i++){
@@ -37,12 +36,13 @@ class Specialist_3: public Thread {
                             message_tak[1] = i;
                             for(int i = 0; i<process_count; i++){
                                 if(process_id == i) continue;
-                                MPI_Send(&message_tak, 2, MPI_INT, i, MTAK2 ,MPI_COMM_WORLD);
+                                MPI_Send(&message_tak, 2, MPI_INT, i, MTAK3 ,MPI_COMM_WORLD);
                             }
                             break;
                         }
                     }
                         if(is_free)break;
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
                 }
                 MPI_Status status;
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -52,7 +52,6 @@ class Specialist_3: public Thread {
                         if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MREQ3!\n",this->process_id);
                         if (ack_count < this->data.expert_count -1)
                         {
-                            printf("BINGO lamp %d %d\n",this->data.lamport_clock_value,message_buffor[0]);
                             if(this->data.lamport_clock_value < message_buffor[0] || 
                             (this->data.lamport_clock_value == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                                 this->data.lamport_clock_value+=2;
@@ -67,7 +66,7 @@ class Specialist_3: public Thread {
                         }
                         break;
                     case MACK3:
-                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MACK3!\n",this->process_id);
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d %d\tOdebral MACK3!\n",this->process_id,ack_count+1);
                         ack_count+=1;
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                         break;
@@ -77,8 +76,8 @@ class Specialist_3: public Thread {
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                         break;
                     case MTAK3 :
-                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tOdebral MTAK3!\n",this->process_id);
-                        ack_count+1;
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d %d\tOdebral MTAK3!\n",this->process_id,ack_count+1);
+                        ack_count+=1;
                         this->process_list[message_buffor[1]]-=1;
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                         break;
@@ -152,7 +151,7 @@ class Specialist_3: public Thread {
                         rready_count++;
                         if(rready_count == 2){
                             if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                            sleep(5);
+                            sleep(rand()%1+1);
                             if(DEBUG)printf("[SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                             message = ++this->data.lamport_clock_value;
                             for(int i = 0; i<process_count; i++){

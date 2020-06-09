@@ -8,8 +8,10 @@ int main(int argc, char *argv[]){
 
     MPI_Init(&argc,&argv);
     int process_count;
+    int process_id; 
+    MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
     MPI_Comm_size(MPI_COMM_WORLD, &process_count);
-    printf("Liczba procesow: %d!\n",process_count);
+    if(process_id==0)printf("Liczba procesow: %d!\n",process_count);
     int temp = 0;
     specialist sp;
     sp.mission_unassigned = 0;
@@ -17,6 +19,7 @@ int main(int argc, char *argv[]){
     sp.initial_skeleton_count = 3;
     for(int i = process_count - 1; i>0; i-=3)
     temp++;
+    if(process_id==0)printf("Liczba specjalistow 1: %d\n",temp);
     sp.expert_count = temp;
     sp.lamport_clock_value = 0;
     specialist sp2;
@@ -26,6 +29,7 @@ int main(int argc, char *argv[]){
     temp = 0;
     for(int i = process_count - 2; i>0; i-=3)
     temp++;
+    if(process_id==0)printf("Liczba specjalistow 2: %d\n",temp);
     sp2.expert_count = temp;
     sp2.lamport_clock_value = 0;
     specialist sp3;
@@ -35,10 +39,9 @@ int main(int argc, char *argv[]){
     temp = 0;
     for(int i = process_count - 3; i>0; i-=3)
     temp++;
+    if(process_id==0)printf("Liczba specjalistow 3: %d\n",temp);
     sp3.expert_count = temp;
     sp3.lamport_clock_value = 0;
-    int process_id; 
-    MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
     if(process_id == 0){
     Employer employer;
     printf("%d jako employer!\n",process_id);

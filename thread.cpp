@@ -10,6 +10,7 @@ class Thread{
         MPI_Comm_size(MPI_COMM_WORLD, &process_count);
         process_list = new int [process_count];
         memset(process_list,0,sizeof(int)*process_count);
+        srand(time(NULL));
     }
 
     ~Thread(){

@@ -34,14 +34,13 @@ class Specialist_1: public Thread{
                 if(status.MPI_TAG == MISSION){
                     this->data.mission_unassigned+=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
-                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\tOtrzymal MISSION od %d!\n",process_id,status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d %d %d\tOtrzymal MISSION od %d!\n",process_id,ack_count,this->data.mission_unassigned,status.MPI_SOURCE);
                 }
                 else if(status.MPI_TAG == MTAK1){
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count += 1;
-                    printf("%d %d \n",ack_count, this->data.expert_count - this->data.mission_unassigned);
-                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MTAK1 od %d!\n",process_id,status.MPI_SOURCE);
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d %d %d\totrzymal MTAK1 od %d!\n",process_id,ack_count,this->data.mission_unassigned,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == TREQ){
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                     message = this->data.lamport_clock_value;
@@ -60,7 +59,7 @@ class Specialist_1: public Thread{
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     }
                 }else if(status.MPI_TAG == MACK1){
-                    if(DEBUG)printf("[SPEC_1_WFM]\t%d\totrzymal MACK1 od %d LAMP: %d!\n",process_id,status.MPI_SOURCE, message_buffor[0]);
+                    if(DEBUG)printf("[SPEC_1_WFM]\t%d %d %d\totrzymal MACK1 od %d LAMP: %d!\n",process_id,ack_count+1,this->data.mission_unassigned,status.MPI_SOURCE, message_buffor[0]);
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count+=1;
                 }
@@ -134,7 +133,7 @@ class Specialist_1: public Thread{
                     MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
                 }
                 if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tZaczyna pap. robote!\n",this->process_id);
-                sleep(3);
+                sleep(rand()%1+1);
                 if(DEBUG)printf("[SPEC_1_WFTABLE]\t%d\tKonczy pap. robote!\n",this->process_id);
                 break;
             }
@@ -194,7 +193,7 @@ class Specialist_1: public Thread{
                     if(team_ready_counter == 2)
                     {
                         if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->process_id);
-                        sleep(5);
+                        sleep(rand()%1+1);
                         if(DEBUG)printf("[SPEC_1_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->process_id);
                         break;
                         }
