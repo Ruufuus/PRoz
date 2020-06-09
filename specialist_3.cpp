@@ -70,7 +70,7 @@ class Specialist_3: public Thread {
                     case MACK3:
                         ack_count+=1;
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
-                        if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d %d\tOdebral MACK3!\n", this->data.lamport_clock_value,this->process_id,ack_count+1);
+                        if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d %d\tOdebral MACK3!\n", this->data.lamport_clock_value,this->process_id,ack_count);
                         break;
                     case S3REQ :
                         this->process_list[status.MPI_SOURCE]+=1;
@@ -82,7 +82,7 @@ class Specialist_3: public Thread {
                         ack_count+=1;
                         this->process_list[message_buffor[1]]-=1;
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
-                        if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d %d\tOdebral MTAK3!\n", this->data.lamport_clock_value,this->process_id,ack_count+1);
+                        if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d %d\tOdebral MTAK3!\n", this->data.lamport_clock_value,this->process_id,ack_count);
                         break;
                 }
 
