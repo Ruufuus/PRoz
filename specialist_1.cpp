@@ -12,10 +12,12 @@ class Specialist_1: public Thread{
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
+            if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MREQ1!\n", this->data.lamport_clock_value,this->process_id);
             for(int i = 0; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, MREQ1 ,MPI_COMM_WORLD);
             }
+            int request_priority = this->data.lamport_clock_value;
             int ack_count = 0;
             while(!is_mission){
                 if(ack_count >= this->data.expert_count - this->data.mission_unassigned - 1){
@@ -50,8 +52,8 @@ class Specialist_1: public Thread{
                 else if(status.MPI_TAG == MREQ1){
                     if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tLAMP: %d otrzymal MREQ1 od %d LAMP: %d!\n",this->data.lamport_clock_value,process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
                         if(ack_count < this->data.expert_count - this->data.mission_unassigned - 1){
-                        if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                        || (this->data.lamport_clock_value>message_buffor[0])){
+                        if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                        || (request_priority>message_buffor[0])){
                             this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                             if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\twysyla MACK1 do %d!\n",this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
                             message = this->data.lamport_clock_value;
@@ -129,8 +131,14 @@ class Specialist_1: public Thread{
         int tack_count = 0;
         int rready_count = rready_counter;
         MPI_Status status;
-        int message;
+        int message = ++this->data.lamport_clock_value;
         int message_buffor[4];
+        if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tWysyla TREQ!\n", this->data.lamport_clock_value,this->process_id);
+        for(int i = 0; i<process_count; i++){
+                if(process_id == i) continue;
+                MPI_Send(&message, 1, MPI_INT, i, TREQ ,MPI_COMM_WORLD);
+            }
+        int request_priority = this->data.lamport_clock_value;
         while(is_table){
             if(tack_count >= this->data.expert_count - this->data.guild_table_count){
                 this->data.lamport_clock_value+=1;
@@ -157,8 +165,8 @@ class Specialist_1: public Thread{
             }else 
             if(status.MPI_TAG == TREQ){
                 if(tack_count < this->data.expert_count - this->data.guild_table_count){
-                    if((this->data.lamport_clock_value==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                    || (this->data.lamport_clock_value>message_buffor[0])){
+                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                    || (request_priority>message_buffor[0])){
                         if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tLAMP: %d Otrzymuje TREQ od %d LAMP: %d!\n",this->data.lamport_clock_value+1,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                         message = this->data.lamport_clock_value;
