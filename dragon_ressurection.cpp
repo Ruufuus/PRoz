@@ -24,6 +24,11 @@ int main(int argc, char *argv[]){
     int table_count = atoi(argv[5]);
     int skeleton_count = atoi(argv[6]);
 
+    if(process_count != employer_count + spec_1_count + spec_2_count + spec_3_count){
+        if(process_id == 0)printf("Liczba wywolanych procesow nie rowna sie sumie wpisanych wyspecjalizowanych procesow!\n");
+        MPI_Finalize();
+    }
+
     if(process_id==0){
         printf("Liczba procesow: %d!\n",process_count);
         printf("Liczba zleceniodawcow: %d!\n",employer_count);
