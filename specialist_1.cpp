@@ -94,7 +94,7 @@ class Specialist_1: public Thread{
             }else if(status.MPI_TAG == RREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 rready_counter+=1;
-                if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tOtrzymuje RREADY od %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
+                if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tOtrzymuje RREADY od %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
             }
             else if(status.MPI_TAG == TREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
@@ -191,8 +191,9 @@ class Specialist_1: public Thread{
             int message;
             int message_buffor[4];
             MPI_Status status;
+            this->data.lamport_clock_value +=1;
             for(int i = 1; i < 3; i++){
-                id = this->data.team_ids[i];this->data.lamport_clock_value +=1;
+                id = this->data.team_ids[i];
                 message = this->data.lamport_clock_value;
                 if(DEBUG)printf("%d [SPEC_1_RESSURECT]\t%d\tWysyla RREADY do %d!\n",this->data.lamport_clock_value,this->process_id, id);
                 MPI_Send(&message, 1, MPI_INT, id, RREADY ,MPI_COMM_WORLD);

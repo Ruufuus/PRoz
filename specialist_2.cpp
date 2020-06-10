@@ -92,11 +92,12 @@ class Specialist_2: public Thread{
             }
         }
 
-        void wait_for_team(){
+        int wait_for_team(){
         bool is_team_ready = true;
         MPI_Status status;
         int message;
         int message_buffor[4];
+        int rready_count = 0;
         while(is_team_ready){
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == S3IFREQ){
@@ -122,6 +123,10 @@ class Specialist_2: public Thread{
                 message = this->data.lamport_clock_value;
                 if(DEBUG)printf("%d [SPEC_2_WFT]\t%d\tWysyla MACK2 do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
                 MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
+            }else if(status.MPI_TAG == RREADY){
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                rready_count+=1;
+                if(DEBUG)printf("%d [SPEC_2_WFT]\t%d\tOtrzymuje RREADY od %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
             }else if(status.MPI_TAG == SKREQ){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
                 message = this->data.lamport_clock_value;
@@ -137,13 +142,14 @@ class Specialist_2: public Thread{
                 if(DEBUG)printf("%d [SPEC_2_WFT]\t%d\tOtrzymuje MTAK2 od %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
             }
         }
+        return rready_count;
     
 };
 
-        int wait_for_skeleton(){
+        int wait_for_skeleton(int rready_counter){
         bool is_skeleton = true;
         int skack_count = 0;
-        int rready_count = 0;
+        int rready_count = rready_counter;
         MPI_Status status;
         int message;
         int message_buffor[4];
@@ -260,8 +266,8 @@ class Specialist_2: public Thread{
         void lifetime(){
             this->wait_for_S2REQ();
             this->wait_for_specialist_3();
-            this->wait_for_team();
-            int rready__counter = this->wait_for_skeleton();
+            int rready__counter = this->wait_for_team();
+            rready__counter = this->wait_for_skeleton(rready__counter);
             this->ressurection(rready__counter);
         }
 };
