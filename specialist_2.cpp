@@ -8,6 +8,8 @@ class Specialist_2: public Thread{
         }
 
         void wait_for_S2REQ(){
+            int * ack_list = new int [process_count];
+            memset(process_list,0,sizeof(int)*process_count);
             bool is_mission = false;
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
@@ -51,6 +53,7 @@ class Specialist_2: public Thread{
                     if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\tOtrzymal S2REQ od %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
                 }
                 else if(status.MPI_TAG == MTAK2){
+                    ack_list[status.MPI_SOURCE] = 1;
                     this->process_list[message_buffor[1]]-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count += 1;
@@ -63,16 +66,19 @@ class Specialist_2: public Thread{
                 }
                 else if(status.MPI_TAG == MREQ2){
                     if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\tLAMP: %d otrzymal MREQ2 od %d LAMP: %d!\n", this->data.lamport_clock_value,process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
-                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                    || (request_priority>message_buffor[0])){
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                        message = this->data.lamport_clock_value;
-                        if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
-                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
-                    }else{
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    if(ack_list[status.MPI_SOURCE]<1){
+                        if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                        || (request_priority>message_buffor[0])){
+                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                            message = this->data.lamport_clock_value;
+                            if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
+                            MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
+                        }else{
+                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                        }
                     }
                 }else if(status.MPI_TAG == MACK2){
+                    ack_list[status.MPI_SOURCE] = 1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     ack_count+=1;
                     if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d %d\totrzymal MACK2 od %d LAMP: %d!\n", this->data.lamport_clock_value,process_id,ack_count,status.MPI_SOURCE, message_buffor[0]);
@@ -138,6 +144,8 @@ class Specialist_2: public Thread{
 };
 
         int wait_for_skeleton(int rready_counter){
+        int * ack_list = new int [process_count];
+        memset(process_list,0,sizeof(int)*process_count);
         bool is_skeleton = true;
         int skack_count = 0;
         int rready_count = rready_counter;
@@ -168,6 +176,7 @@ class Specialist_2: public Thread{
             if(status.MPI_TAG == SKACK){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 skack_count+=1;
+                ack_list[status.MPI_SOURCE] = 1;
                 if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tOtrzymuje SKACK od %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
             }if(status.MPI_TAG == RREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
@@ -176,14 +185,16 @@ class Specialist_2: public Thread{
             }
             else if(status.MPI_TAG == SKREQ){
                 if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tLAMP: %d Otrzymuje SKERQ od %d LAMP: %d!\n", this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
-                if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                || (request_priority>message_buffor[0])){
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                    message = this->data.lamport_clock_value;
-                    if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
-                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
-                }else{
-                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                if(ack_list[status.MPI_SOURCE]<1){
+                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                    || (request_priority>message_buffor[0])){
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                        message = this->data.lamport_clock_value;
+                        if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
+                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
+                    }else{
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                    }
                 }
             }else if(status.MPI_TAG == S2REQ){
                 this->process_list[status.MPI_SOURCE]+=1;
