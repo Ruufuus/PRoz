@@ -88,12 +88,7 @@ class Specialist_1: public Thread{
         int rready_counter = 0;
         while(is_team_ready){
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
-            if(status.MPI_TAG == S2IFREQ){
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                int mes_tab[2] = {this->data.lamport_clock_value, this->process_id};
-                if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tWysyla S2REQ do %d!\n",this->data.lamport_clock_value,this->process_id,status.MPI_SOURCE);
-                MPI_Send(&mes_tab, 2, MPI_INT, status.MPI_SOURCE, S2REQ ,MPI_COMM_WORLD);
-            }else if(status.MPI_TAG == RREADY){
+            if(status.MPI_TAG == RREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 rready_counter+=1;
                 if(DEBUG)printf("%d [SPEC_1_WFT]\t%d\tOtrzymuje RREADY od %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);

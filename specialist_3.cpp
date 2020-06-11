@@ -45,7 +45,7 @@ class Specialist_3: public Thread {
                         }
                     }
                         if(is_free)break;
-                        //if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
+                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
                 }
                 MPI_Status status;
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -79,7 +79,6 @@ class Specialist_3: public Thread {
                         if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tOdebral S3REQ!\n", this->data.lamport_clock_value,this->process_id);
                         break;
                     case MTAK3 :
-                        
                         ack_count+=1;
                         this->process_list[message_buffor[1]]-=1;
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
@@ -181,13 +180,11 @@ class Specialist_3: public Thread {
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK3, MPI_COMM_WORLD);
                         break;
                     case S3REQ :
-                        
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         this->process_list[status.MPI_SOURCE]+=1;
                         if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tOdebral S3REQ!\n", this->data.lamport_clock_value,this->process_id);
                         break;
                     case MTAK3 :
-                        
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, mess_buf[0])+1;
                         this->process_list[mess_buf[1]]-=1;
                         if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tOdebral MTAK3!\n",this->data.lamport_clock_value,this->process_id);
