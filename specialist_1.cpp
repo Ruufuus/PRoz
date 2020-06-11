@@ -9,7 +9,7 @@ class Specialist_1: public Thread{
 
         void wait_for_mission(){
             int * ack_list = new int [process_count];
-            memset(process_list,0,sizeof(int)*process_count);
+            memset(ack_list,0,sizeof(int)*process_count);
             bool is_mission = false;
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
@@ -127,7 +127,7 @@ class Specialist_1: public Thread{
 
         int wait_for_table(int rready_counter){
         int * ack_list = new int [process_count];
-        memset(process_list,0,sizeof(int)*process_count);
+        memset(ack_list,0,sizeof(int)*process_count);
         bool is_table = true;
         int tack_count = 0;
         int rready_count = rready_counter;

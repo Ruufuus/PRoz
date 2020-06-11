@@ -9,7 +9,7 @@ class Specialist_2: public Thread{
 
         void wait_for_S2REQ(){
             int * ack_list = new int [process_count];
-            memset(process_list,0,sizeof(int)*process_count);
+            memset(ack_list,0,sizeof(int)*process_count);
             bool is_mission = false;
             this->data.lamport_clock_value+=1;
             int message = this->data.lamport_clock_value;
@@ -145,7 +145,7 @@ class Specialist_2: public Thread{
 
         int wait_for_skeleton(int rready_counter){
         int * ack_list = new int [process_count];
-        memset(process_list,0,sizeof(int)*process_count);
+        memset(ack_list,0,sizeof(int)*process_count);
         bool is_skeleton = true;
         int skack_count = 0;
         int rready_count = rready_counter;

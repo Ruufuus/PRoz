@@ -11,7 +11,7 @@ class Specialist_3: public Thread {
 
         void wait_for_S3REQ(){
             int * ack_list = new int [process_count];
-            memset(process_list,0,sizeof(int)*process_count);
+            memset(ack_list,0,sizeof(int)*process_count);
             bool is_S3REQ = false;
             this->data.lamport_clock_value += 1;
             int message = this->data.lamport_clock_value;
