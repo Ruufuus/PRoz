@@ -63,16 +63,12 @@ class Specialist_2: public Thread{
                 }
                 else if(status.MPI_TAG == MREQ2){
                     if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\tLAMP: %d otrzymal MREQ2 od %d LAMP: %d!\n", this->data.lamport_clock_value,process_id,this->data.lamport_clock_value,status.MPI_SOURCE, message_buffor[0]);
-                        if(ack_count < this->data.expert_count -1){
-                        if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                        || (request_priority>message_buffor[0])){
-                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                            message = this->data.lamport_clock_value;
-                            if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
-                            MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
-                        }else{
-                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
-                        }
+                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                    || (request_priority>message_buffor[0])){
+                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                        message = this->data.lamport_clock_value;
+                        if(DEBUG)printf("%d [SPEC_2_WFS2REQ]\t%d\twysyla MACK2 do %d!\n", this->data.lamport_clock_value,process_id,status.MPI_SOURCE);
+                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK2 ,MPI_COMM_WORLD);
                     }else{
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                     }
@@ -180,16 +176,14 @@ class Specialist_2: public Thread{
             }
             else if(status.MPI_TAG == SKREQ){
                 if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tLAMP: %d Otrzymuje SKERQ od %d LAMP: %d!\n", this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
-                if(skack_count < this->data.expert_count - this->data.initial_skeleton_count){
-                    if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
-                    || (request_priority>message_buffor[0])){
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
-                        message = this->data.lamport_clock_value;
-                        if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
-                        MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
-                    }else{
-                        this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
-                    }
+                if((request_priority==message_buffor[0] && this->process_id<status.MPI_SOURCE) 
+                || (request_priority>message_buffor[0])){
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
+                    message = this->data.lamport_clock_value;
+                    if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tWysyla SKACK do %d!\n", this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
+                    MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
+                }else{
+                    this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 }
             }else if(status.MPI_TAG == S2REQ){
                 this->process_list[status.MPI_SOURCE]+=1;
@@ -225,6 +219,7 @@ class Specialist_2: public Thread{
             bool is_team_ready = false;
             int team_ready_counter = rready_count;
             while(!is_team_ready){
+                if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\t!rrcounter = %d\n", this->data.lamport_clock_value,this->process_id,team_ready_counter);    
                 if(team_ready_counter == 2)
                 {
                     if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);

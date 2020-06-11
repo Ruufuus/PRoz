@@ -45,7 +45,7 @@ class Specialist_3: public Thread {
                         }
                     }
                         if(is_free)break;
-                        if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
+                        //if(DEBUG)printf("[SPEC_3_WFS3REQ]\t%d\tBrak specjalisty 2!\n",this->process_id);
                 }
                 MPI_Status status;
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
@@ -53,8 +53,6 @@ class Specialist_3: public Thread {
                 switch(status.MPI_TAG){
                     case MREQ3 :
                         if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tOdebral MREQ3!\n", this->data.lamport_clock_value,this->process_id);
-                        if (ack_count < this->data.expert_count -1)
-                        {
                             if(request_priority> message_buffor[0] || 
                             (request_priority == message_buffor[0] && this->process_id < status.MPI_SOURCE)){
                                 this->data.lamport_clock_value+=2;
@@ -64,9 +62,6 @@ class Specialist_3: public Thread {
                             }else{
                                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
                             }
-                        }else{
-                            this->data.lamport_clock_value = std::max(this->data.lamport_clock_value, message_buffor[0])+1;
-                        }
                         break;
                     case MACK3:
                         ack_count+=1;
