@@ -41,10 +41,12 @@ class Specialist_1: public Thread{
                     if(DEBUG)printf("%d [SPEC_1_WFM]\t%d %d %d\tOtrzymal MISSION od %d!\n",this->data.lamport_clock_value,process_id,ack_count,this->data.mission_unassigned,status.MPI_SOURCE);
                 }
                 else if(status.MPI_TAG == MTAK1){
-                    ack_list[status.MPI_SOURCE] = 1;
+                    if(ack_list[status.MPI_SOURCE] == 0){
+                        ack_list[status.MPI_SOURCE] = 1;
+                        ack_count += 1;
+                    }
                     this->data.mission_unassigned-=1;
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
-                    ack_count += 1;
                     if(DEBUG)printf("%d [SPEC_1_WFM]\t%d %d %d\totrzymal MTAK1 od %d!\n",this->data.lamport_clock_value,process_id,ack_count,this->data.mission_unassigned,status.MPI_SOURCE);
                 }else if(status.MPI_TAG == TREQ){
                     this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+2;
@@ -157,8 +159,8 @@ class Specialist_1: public Thread{
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == TACK){
                 ack_list[status.MPI_SOURCE] = 1;
-                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 tack_count+=1;
+                this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
                 if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tOtrzymuje TACK od %d!\n",this->data.lamport_clock_value,this->process_id, status.MPI_SOURCE);
             }else if(status.MPI_TAG == RREADY){
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
