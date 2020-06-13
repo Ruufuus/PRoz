@@ -9,6 +9,7 @@
 
 #include "thread.cpp"
 #include "specialist.h"
+#include "sleep_thread.cpp"
 
 #define DEBUG true
 
