@@ -159,13 +159,13 @@ class Specialist_3: public Thread {
             int rready_count = rready_counter;
             bool team_ready = false;
             MPI_Status status;
+            bool interrupt = true;
             while(!team_ready){
-                if(rready_count == 2)
+                if(rready_count == 2 && interrupt)
                 {
                     if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
-                    //sleep(rand()%1+1);
-                    if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
-                    break;
+                    interrupt = false;
+                    sleeper Sleepy(&team_ready);
                 }
                 MPI_Recv(&mess_buf, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 switch(status.MPI_TAG){
@@ -194,6 +194,7 @@ class Specialist_3: public Thread {
                         break;
                 }
             }
+            if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
         }
 
         void lifetime(){

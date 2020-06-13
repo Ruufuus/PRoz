@@ -214,13 +214,14 @@ class Specialist_1: public Thread{
             }
             bool is_team_ready = false;
             int team_ready_counter = rready_counter;
+            bool interrupt = true;
             while(!is_team_ready){
-                if(team_ready_counter == 2)
+                if(team_ready_counter == 2 && interrupt)
                 {
                     if(DEBUG)printf("%d [SPEC_1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->data.lamport_clock_value,this->process_id);
+                    interrupt = false;
                     sleeper Sleepy(&is_team_ready);
-                    Sleepy.go();
-                    
+                    Sleepy.go();  
                 }
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == RREADY){
