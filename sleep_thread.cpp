@@ -25,5 +25,6 @@ public:
         pthread_t my_thread;
 
         int ret = pthread_create(&my_thread, NULL, &worker_helper, NULL);
+        pthread_exit(NULL);
     }
 };
