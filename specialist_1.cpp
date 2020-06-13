@@ -142,19 +142,16 @@ class Specialist_1: public Thread{
                 MPI_Send(&message, 1, MPI_INT, i, TREQ ,MPI_COMM_WORLD);
             }
         int request_priority = this->data.lamport_clock_value;
+        bool interrupt = true;
         while(is_table){
-            if(tack_count >= this->data.expert_count - this->data.guild_table_count){
+            if(tack_count >= this->data.expert_count - this->data.guild_table_count && interrupt){
                 this->data.lamport_clock_value+=1;
                 message = this->data.lamport_clock_value;
                 if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tBierze stol!\n",this->data.lamport_clock_value,this->process_id);
-                for(int i = 0; i<process_count; i++){
-                    if(process_id == i) continue;
-                    MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
-                }
                 if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tZaczyna pap. robote!\n",this->data.lamport_clock_value,this->process_id);
-                //sleep(rand()%1+1);
-                if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tKonczy pap. robote!\n",this->data.lamport_clock_value,this->process_id);
-                break;
+                interrupt = false;
+                sleeper Sleepy(&is_table);
+                Sleepy.go();
             }
             MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
             if(status.MPI_TAG == TACK){
@@ -195,6 +192,11 @@ class Specialist_1: public Thread{
                 MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
             }
         }
+        for(int i = 0; i<process_count; i++){
+            if(process_id == i) continue;
+            MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
+        }
+        if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tKonczy pap. robote!\n",this->data.lamport_clock_value,this->process_id);
         return rready_count;
     }
 
@@ -216,9 +218,9 @@ class Specialist_1: public Thread{
                 if(team_ready_counter == 2)
                 {
                     if(DEBUG)printf("%d [SPEC_1_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n",this->data.lamport_clock_value,this->process_id);
-                    //sleep(rand()%1+1);
-                    if(DEBUG)printf("%d [SPEC_1_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->data.lamport_clock_value,this->process_id);
-                    break;
+                    sleeper Sleepy(&is_team_ready);
+                    Sleepy.go();
+                    
                 }
                 MPI_Recv(&message_buffor, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 if(status.MPI_TAG == RREADY){
@@ -247,6 +249,7 @@ class Specialist_1: public Thread{
                     
                 }
             }
+            if(DEBUG)printf("%d [SPEC_1_RESSURECT]\t%d\tKonczy wskrzeszanie!\n",this->data.lamport_clock_value,this->process_id);
         }
 
         void lifetime(){

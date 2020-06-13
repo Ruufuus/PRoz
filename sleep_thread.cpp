@@ -13,7 +13,7 @@ public:
 
     void *worker(void){
         sleep(3);
-        *wake_up = false;
+        *wake_up = !*wake_up;
     }
 
     static void *worker_helper(void *context){
