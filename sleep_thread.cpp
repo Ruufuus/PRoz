@@ -12,10 +12,8 @@ public:
     }
 
     static void worker(bool * wake_up_){
-        printf("init %d\n", *wake_up_);
-        sleep(3);
+        sleep(5);
         *wake_up_ = !*wake_up_;
-        printf("koniec %d\n",*wake_up_);
     }
 
     static void *worker_helper(void *wake_up_){
