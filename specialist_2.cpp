@@ -148,7 +148,8 @@ class Specialist_2: public Thread{
         int wait_for_skeleton(int rready_counter){
         int * ack_list = new int [process_count];
         memset(ack_list,0,sizeof(int)*process_count);
-        bool is_skeleton = true;
+        bool * is_skeleton = new bool;
+        *is_skeleton = true;
         int skack_count = 0;
         int rready_count = rready_counter;
         MPI_Status status;
@@ -161,7 +162,7 @@ class Specialist_2: public Thread{
             MPI_Send(&message, 1, MPI_INT, i, SKREQ ,MPI_COMM_WORLD);
         }
         bool interrupt = true;
-        while(is_skeleton){
+        while(*is_skeleton){
             if(skack_count >= this->data.expert_count - this->data.initial_skeleton_count && interrupt){
                 this->data.lamport_clock_value+=1;
                 message = this->data.lamport_clock_value;
@@ -169,7 +170,7 @@ class Specialist_2: public Thread{
                 
                 if(DEBUG)printf("%d [SPEC_2_WFS]]\t%d\tZaczyna brac szkielet!\n", this->data.lamport_clock_value,this->process_id);
                 interrupt = false;
-                sleeper Sleepy(&is_skeleton);
+                sleeper Sleepy(is_skeleton);
                 Sleepy.go();
                 
             }
@@ -219,6 +220,7 @@ class Specialist_2: public Thread{
             MPI_Send(&message, 1, MPI_INT, i, SKACK ,MPI_COMM_WORLD);
         }
         if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tKonczy brac szkielet!\n", this->data.lamport_clock_value,this->process_id);
+        free(is_skeleton);
         return rready_count;
     }
 
@@ -235,16 +237,17 @@ class Specialist_2: public Thread{
                 if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\tWysyla RREADY do %d!\n", this->data.lamport_clock_value,this->process_id, id);
                 MPI_Send(&message, 1, MPI_INT, id, RREADY ,MPI_COMM_WORLD);
             }
-            bool is_team_ready = false;
+            bool * is_team_ready = new bool;
+            * is_team_ready = false;
             int team_ready_counter = rready_count;
             bool interrupt = true;
-            while(!is_team_ready){
+            while(!*is_team_ready){
                 if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\t!rrcounter = %d\n", this->data.lamport_clock_value,this->process_id,team_ready_counter);    
                 if(team_ready_counter == 2 && interrupt)
                 {
                     if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
                     interrupt = false;
-                    sleeper Sleepy(&is_team_ready);
+                    sleeper Sleepy(is_team_ready);
                     Sleepy.go();
                     
                     
@@ -278,6 +281,7 @@ class Specialist_2: public Thread{
                 }
             }
             if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\tKonczy wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
+            free(is_team_ready);
         }
 
         void lifetime(){

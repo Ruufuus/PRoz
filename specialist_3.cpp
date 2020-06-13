@@ -157,15 +157,16 @@ class Specialist_3: public Thread {
 
             int mess_buf[4];
             int rready_count = rready_counter;
-            bool team_ready = false;
+            bool * team_ready = new bool;
+            * team_ready = false;
             MPI_Status status;
             bool interrupt = true;
-            while(!team_ready){
+            while(!*team_ready){
                 if(rready_count == 2 && interrupt)
                 {
                     if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
                     interrupt = false;
-                    sleeper Sleepy(&team_ready);
+                    sleeper Sleepy(team_ready);
                 }
                 MPI_Recv(&mess_buf, 4, MPI_INT, MPI_ANY_SOURCE, MPI_ANY_TAG, MPI_COMM_WORLD, &status);
                 switch(status.MPI_TAG){
@@ -195,6 +196,7 @@ class Specialist_3: public Thread {
                 }
             }
             if(DEBUG)printf("%d [SPEC_3_RESSURECT]\t%d\tKonczy wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
+            free(team_ready);
         }
 
         void lifetime(){

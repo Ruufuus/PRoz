@@ -11,19 +11,20 @@ public:
         this->wake_up = wake_up;
     }
 
-    void *worker(void){
+    static void worker(bool * wake_up_){
+        printf("init %d\n", *wake_up_);
         sleep(3);
-        *wake_up = !*wake_up;
+        *wake_up_ = !*wake_up_;
+        printf("koniec %d\n",*wake_up_);
     }
 
-    static void *worker_helper(void *context){
-        return ((sleeper *)context)->worker();
+    static void *worker_helper(void *wake_up_){
+        worker((bool*)wake_up_);
+        pthread_exit(NULL);
     }
     
     void go(){
         pthread_t my_thread;
-
-        int ret = pthread_create(&my_thread, NULL, &worker_helper, NULL);
-        pthread_exit(NULL);
+        int ret = pthread_create(&my_thread, NULL, &worker_helper, (void*)this->wake_up);
     }
 };
