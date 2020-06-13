@@ -30,3 +30,14 @@
 *.exe
 *.out
 *.app
+
+
+# Visual studio	
+*.vs
+
+#Visual studio code
+*.vscode
+
+test.cpp
+hostfile
+*.log

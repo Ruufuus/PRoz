@@ -1,0 +1,912 @@
+1 jako specialist 1!
+1 [SPEC_1_WFM]	1	Wysyla MREQ1!
+2 jako specialist 2!
+1 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+2 [SPEC_1_WFM]	1	Wysyla MTAK1!
+3 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+Liczba procesow: 4!
+Liczba specjalistow 1: 1
+Liczba specjalistow 2: 1
+Liczba specjalistow 3: 1
+0 jako employer!
+3 jako specialist 3!
+1 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+4 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+5 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+6 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+7 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+8 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+9 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+10 [SPEC_2_WFT]11 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+12 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+12 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+	2	Otrzymuje TREADY od 3 (1 2 3)!
+10 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+11 [SPEC_2_WFS]	2	Wysyla SKREQ!
+15 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+12 [SPEC_2_WFS]	2	Bierze szkielet!
+12 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+12 [SPEC_2_WFS]	2	Konczy brac szkielet!
+13 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+14 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+15 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+16 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+16 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+16 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+17 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+11 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+12 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+13 [SPEC_1_WFTABLE]	1	Bierze stol!
+13 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+13 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+14 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+15 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+16 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+17 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+17 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+17 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+18 [SPEC_1_WFM]	1	Wysyla MREQ1!
+16 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+16 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+16 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+17 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+19 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+20 [SPEC_1_WFM]	1	Wysyla MTAK1!
+21 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+22 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+23 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+24 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+25 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+26 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+27 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+29 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+30 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+30 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+29 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+30 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+31 [SPEC_1_WFTABLE]	1	Bierze stol!
+31 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+31 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+32 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+33 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+34 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+35 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+35 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+35 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+36 [SPEC_1_WFM]	1	Wysyla MREQ1!
+28 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+28 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+29 [SPEC_2_WFS]	2	Wysyla SKREQ!
+30 [SPEC_2_WFS]	2	Bierze szkielet!
+30 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+30 [SPEC_2_WFS]	2	Konczy brac szkielet!
+31 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+32 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+33 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+34 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+34 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+34 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+35 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+33 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+34 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+34 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+34 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+35 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+37 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+38 [SPEC_1_WFM]	1	Wysyla MTAK1!
+39 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+40 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+41 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+42 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+43 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+44 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+45 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+46 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+46 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+47 [SPEC_2_WFS]	2	Wysyla SKREQ!
+48 [SPEC_2_WFS]	2	Bierze szkielet!
+48 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+48 [SPEC_2_WFS]	2	Konczy brac szkielet!
+49 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+50 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+51 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+47 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+48 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+49 [SPEC_1_WFTABLE]	1	Bierze stol!
+49 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+49 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+50 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+51 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+52 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+53 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+53 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+53 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+54 [SPEC_1_WFM]	1	Wysyla MREQ1!
+47 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+48 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+48 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+52 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+52 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+52 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+53 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+51 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+52 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+52 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+52 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+53 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+55 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+56 [SPEC_1_WFM]	1	Wysyla MTAK1!
+57 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+58 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+59 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+60 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+61 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+62 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+63 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+64 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+64 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+65 [SPEC_2_WFS]	2	Wysyla SKREQ!
+66 [SPEC_2_WFS]	2	Bierze szkielet!
+66 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+66 [SPEC_2_WFS]	2	Konczy brac szkielet!
+67 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+68 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+69 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+65 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+66 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+67 [SPEC_1_WFTABLE]	1	Bierze stol!
+67 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+67 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+68 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+69 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+70 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+71 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+65 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+66 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+66 [SPEC_3_PFR]	71 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+71 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+72 [SPEC_1_WFM]	1	Wysyla MREQ1!
+3	Wysyla RREADY do 2!
+70 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+71 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+71 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+71 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+72 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+70 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+70 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+70 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+71 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+73 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+74 [SPEC_1_WFM]	1	Wysyla MTAK1!
+75 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+76 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+77 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+78 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+79 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+80 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+81 [SPEC_3_RTR]	3	82 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+82 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+83 [SPEC_2_WFS]	2	Wysyla SKREQ!
+84 [SPEC_2_WFS]	2	Bierze szkielet!
+84 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+84 [SPEC_2_WFS]	2	Konczy brac szkielet!
+85 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+86 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+87 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+83 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+84 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+85 [SPEC_1_WFTABLE]	1	Bierze stol!
+85 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+85 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+86 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+87 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+88 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+Wysyla TREADY do 2!
+83 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+84 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+84 [SPEC_3_PFR]89 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+89 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+89 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+90 [SPEC_1_WFM]	1	Wysyla MREQ1!
+	3	Wysyla RREADY do 2!
+88 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+88 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+88 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+89 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+88 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+89 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+89 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+89 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+90 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+91 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+92 [SPEC_1_WFM]	1	Wysyla MTAK1!
+93 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+94 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+95 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+96 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+97 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+98 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+99 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+100 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+100 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+101 [SPEC_2_WFS]	2	Wysyla SKREQ!
+102 [SPEC_2_WFS]	2	Bierze szkielet!
+102 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+102 [SPEC_2_WFS]	2	Konczy brac szkielet!
+103 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+104 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+105 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+106 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+106 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+106 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+107 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+101 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+102 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+103 [SPEC_1_WFTABLE]	1	Bierze stol!
+103 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+103 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+104 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+105 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+106 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+107 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+107 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+107 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+108 [SPEC_1_WFM]	1	Wysyla MREQ1!
+101 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+102 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+102 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+106 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+107 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+107 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+107 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+108 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+109 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+110 [SPEC_1_WFM]	1	Wysyla MTAK1!
+111 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+112 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+113 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+114 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+115 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+116 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+117 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+118 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+118 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+119 [SPEC_2_WFS]	2	Wysyla SKREQ!
+120 [SPEC_2_WFS]	2	Bierze szkielet!
+120 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+120 [SPEC_2_WFS]	2	Konczy brac szkielet!
+121 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+122 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+123 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+124 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+124 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+124 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+125 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+119 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+120 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+121 [SPEC_1_WFTABLE]	1	Bierze stol!
+121 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+121 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+122 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+123 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+119 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+120 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+120 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+123 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+124 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+124 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+124 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+125 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+124 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+125 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+125 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+125 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+126 [SPEC_1_WFM]	1	Wysyla MREQ1!
+130 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+131 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+132 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+127 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+128 [SPEC_1_WFM]	1	Wysyla MTAK1!
+129 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+133 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+134 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+137 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+138 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+139 [SPEC_1_WFTABLE]	1	Bierze stol!
+139 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+139 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+140 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+141 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+142 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+143 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+143 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+143 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+144 [SPEC_1_WFM]	1	Wysyla MREQ1!
+136 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+136 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+137 [SPEC_2_WFS]	2	Wysyla SKREQ!
+138 [SPEC_2_WFS]	2	Bierze szkielet!
+138 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+138 [SPEC_2_WFS]	2	Konczy brac szkielet!
+139 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+140 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+141 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+142 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+142 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+142 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+143 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+135 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+137 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+138 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+138 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+141 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+142 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+142 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+142 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+143 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+145 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+146 [SPEC_1_WFM]	1	Wysyla MTAK1!
+147 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+148 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+149 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+150 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+151 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+152 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+153 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+154 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+154 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+155 [SPEC_2_WFS]	2	Wysyla SKREQ!
+156 [SPEC_2_WFS]	2	Bierze szkielet!
+156 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+156 [SPEC_2_WFS]	2	Konczy brac szkielet!
+157 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+158 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+159 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+160 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+160 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+160 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+161 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+155 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+156 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+156 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+159 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+160 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+160 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+160 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+161 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+155 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+156 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+157 [SPEC_1_WFTABLE]	1	Bierze stol!
+157 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+157 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+158 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+159 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+160 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+161 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+161 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+161 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+162 [SPEC_1_WFM]	1	Wysyla MREQ1!
+166 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+167 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+168 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+163 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+164 [SPEC_1_WFM]	1	Wysyla MTAK1!
+165 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+169 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+170 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+171 [SPEC_3_RTR]	3	173 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+174 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+175 [SPEC_1_WFTABLE]	1	Bierze stol!
+175 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+175 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+176 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+172 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+172 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+173 [SPEC_2_WFS]	2	Wysyla SKREQ!
+174 [SPEC_2_WFS]	2	Bierze szkielet!
+174 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+174 [SPEC_2_WFS]	2	Konczy brac szkielet!
+175 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+176 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+Wysyla TREADY do 2!
+177 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+178 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+178 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+178 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+179 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+177 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+178 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+179 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+179 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+179 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+180 [SPEC_1_WFM]	1	Wysyla MREQ1!
+173 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+174 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+174 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+177 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+178 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+178 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+178 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+179 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+181 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+182 [SPEC_1_WFM]	1	Wysyla MTAK1!
+183 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+184 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+185 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+186 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+187 [SPEC_3_WFS3REQ]	3	190 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+190 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+191 [SPEC_2_WFS]	2	Wysyla SKREQ!
+192 [SPEC_2_WFS]	2	Bierze szkielet!
+192 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+192 [SPEC_2_WFS]	2	Konczy brac szkielet!
+193 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+194 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+195 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+191 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+192 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+193 [SPEC_1_WFTABLE]	1	Bierze stol!
+193 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+193 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+194 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+195 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+196 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+197 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+197 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+197 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+198 [SPEC_1_WFM]	1	Wysyla MREQ1!
+Odebral S3REQ!
+188 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+189 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+191 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+192 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+192 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+195 [SPEC_3_RESSURECT]196 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+196 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+196 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+197 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+	3	Otrzymal RREADY od 2!
+196 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+196 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+196 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+197 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+199 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+200 [SPEC_1_WFM]	1	Wysyla MTAK1!
+201 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+202 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+203 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+204 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+205 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+206 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+207 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+209 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+210 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+211 [SPEC_1_WFTABLE]	1	Bierze stol!
+211 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+211 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+208 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+208 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+209 [SPEC_2_WFS]	2	Wysyla SKREQ!
+210 [SPEC_2_WFS]	2	Bierze szkielet!
+210 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+210 [SPEC_2_WFS]	2	Konczy brac szkielet!
+211 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+212 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+212 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+213 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+214 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+215 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+215 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+215 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+216 [SPEC_1_WFM]	1	Wysyla MREQ1!
+213 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+214 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+214 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+214 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+215 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+209 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+210 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+210 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+213 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+214 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+214 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+214 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+215 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+217 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+218 [SPEC_1_WFM]	1	Wysyla MTAK1!
+219 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+220 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+221 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+222 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+223 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+224 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+225 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+226 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+226 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+227 [SPEC_2_WFS]	2	Wysyla SKREQ!
+228 [SPEC_2_WFS]	2	Bierze szkielet!
+228 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+228 [SPEC_2_WFS]	2	Konczy brac szkielet!
+229 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+230 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+231 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+227 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+228 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+229 [SPEC_1_WFTABLE]	1	Bierze stol!
+229 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+229 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+230 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+231 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+232 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+233 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+233 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+233 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+234 [SPEC_1_WFM]	1	Wysyla MREQ1!
+227 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+228 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+228 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+231 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+232 [SPEC_3_RESSURECT]	3232 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+232 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+232 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+233 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+	Otrzymal RREADY od 1!
+232 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+232 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+233 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+235 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+236 [SPEC_1_WFM]	1	Wysyla MTAK1!
+237 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+238 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+239 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+240 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+241 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+245 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+246 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+247 [SPEC_1_WFTABLE]	1	Bierze stol!
+247 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+247 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+248 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+249 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+250 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+251 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+251 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+251 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+252 [SPEC_1_WFM]	1	Wysyla MREQ1!
+244 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+244 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+245 [SPEC_2_WFS]	2	Wysyla SKREQ!
+246 [SPEC_2_WFS]	2	Bierze szkielet!
+246 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+246 [SPEC_2_WFS]	2	Konczy brac szkielet!
+247 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+248 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+249 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+250 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+250 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+250 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+251 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+242 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+243 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+245 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+246 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+246 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+249 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+250 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+250 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+250 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+251 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+253 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+254 [SPEC_1_WFM]	1	Wysyla MTAK1!
+255 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+259 [SPEC_3_WFS3REQ]	3256 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+257 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+258 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+	Odebral S3REQ!
+260 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+261 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+263 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+264 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+264 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+268 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+269 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+269 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+269 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+270 [SPEC_3_WFS3REQ]262 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+262 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+263 [SPEC_2_WFS]	2	Wysyla SKREQ!
+264 [SPEC_2_WFS]	2	Bierze szkielet!
+264 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+264 [SPEC_2_WFS]	2	Konczy brac szkielet!
+265 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+266 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+267 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+268 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+268 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+268 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+269 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+263 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+264 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+265 [SPEC_1_WFTABLE]	1	Bierze stol!
+265 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+265 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+266 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+267 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+268 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+269 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+269 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+269 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+270 [SPEC_1_WFM]	1	Wysyla MREQ1!
+	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+274 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+275 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+276 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+280 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+280 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+281 [SPEC_2_WFS]	2	Wysyla SKREQ!
+282 [SPEC_2_WFS]	2	Bierze szkielet!
+282 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+282 [SPEC_2_WFS]	2	Konczy brac szkielet!
+283 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+284 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+285 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+286 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+286 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+286 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+287 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+271 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+272 [SPEC_1_WFM]	1	Wysyla MTAK1!
+273 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+281 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+282 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+283 [SPEC_1_WFTABLE]	1	Bierze stol!
+283 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+283 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+284 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+285 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+286 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+287 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+287 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+287 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+288 [SPEC_1_WFM]	1	Wysyla MREQ1!
+277 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+278 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+279 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+281 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+282 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+282 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+285 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+286 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+286 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+286 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+287 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+289 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+290 [SPEC_1_WFM]	1	Wysyla MTAK1!
+291 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+295 [SPEC_3_WFS3REQ]	292 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+293 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+294 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+3	Odebral S3REQ!
+296 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+297 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+299 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+300 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+300 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+303 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+298 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+298 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+299 [SPEC_2_WFS]	2	Wysyla SKREQ!
+300 [SPEC_2_WFS]	2	Bierze szkielet!
+300 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+300 [SPEC_2_WFS]	2	Konczy brac szkielet!
+301 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+302 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+303 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+301 [SPEC_1_WFT]	1	Otrzymuje RREADY od 3!
+302 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+303 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+304 [SPEC_1_WFTABLE]	1	Bierze stol!
+304 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+304 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+305 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+306 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+307 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+307 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+307 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+308 [SPEC_1_WFM]	1	Wysyla MREQ1!
+307 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+307 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+307 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+308 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+306 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+306 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+306 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+307 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+309 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+310 [SPEC_1_WFM]	1	Wysyla MTAK1!
+311 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+315 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+316 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+317 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+312 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+313 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+314 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+318 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+318 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+319 [SPEC_2_WFS]	2	Wysyla SKREQ!
+320 [SPEC_2_WFS]	2	Bierze szkielet!
+320 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+320 [SPEC_2_WFS]	2	Konczy brac szkielet!
+321 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+322 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+319 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+319 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+320 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+321 [SPEC_1_WFTABLE]	1	Bierze stol!
+321 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+321 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+322 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+323 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+324 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+323 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+325 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+325 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+325 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+326 [SPEC_1_WFM]	1	Wysyla MREQ1!
+320 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+320 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+323 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+324 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+324 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+324 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+325 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+324 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+324 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+324 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+325 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+327 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+328 [SPEC_1_WFM]	1	Wysyla MTAK1!
+329 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+330 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+331 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+332 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+333 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+334 [SPEC_3_WFS3REQ]337 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+338 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+339 [SPEC_1_WFTABLE]	1	Bierze stol!
+339 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+339 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+340 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+341 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+342 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+343 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+343 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+343 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+344 [SPEC_1_WFM]	1	Wysyla MREQ1!
+336 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+336 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+337 [SPEC_2_WFS]	2	Wysyla SKREQ!
+338 [SPEC_2_WFS]	2	Bierze szkielet!
+338 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+338 [SPEC_2_WFS]	2	Konczy brac szkielet!
+339 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+340 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+341 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+342 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+342 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+342 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+343 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+	3	Wysyla MTAK3 zabiera proces 2!
+335 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+337 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+338 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+338 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+341 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+342 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+342 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+342 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+343 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+[EMPLOYER_BM]345 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+346 [SPEC_1_WFM]	1	Wysyla MTAK1!
+347 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+	0	Wyslano MISSION!
+348 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+349 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+350 [SPEC_2_WFS3]	2355 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+356 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+357 [SPEC_1_WFTABLE]	1	Bierze stol!
+357 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+357 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+358 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+359 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+360 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+361 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+361 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+361 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+362 [SPEC_1_WFM]	1	Wysyla MREQ1!
+351 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+352 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+353 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+355 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+356 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+356 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+359 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+360 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+360 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+360 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+361 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+	Wysyla S3REQ!
+354 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+354 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+355 [SPEC_2_WFS]	2	Wysyla SKREQ!
+356 [SPEC_2_WFS]	2	Bierze szkielet!
+356 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+356 [SPEC_2_WFS]	2	Konczy brac szkielet!
+357 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+358 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+359 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+360 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+360 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+360 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+361 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+366 [SPEC_2_WFS2REQ]	2	Otrzymal S2REQ od 1!
+367 [SPEC_2_WFS2REQ]	2	Wysyla MTAK2 zabiera proces 1!
+368 [SPEC_2_WFS3]	2	Wysyla S3REQ!
+372 [SPEC_2_WFT]	2	Otrzymuje TREADY od 3 (1 2 3)!
+372 [SPEC_2_WFT]	2	Otrzymuje FTREADY od 3!
+373 [SPEC_2_WFS]	2	Wysyla SKREQ!
+374 [SPEC_2_WFS]	2	Bierze szkielet!
+374 [SPEC_2_WFS]]	2	Zaczyna brac szkielet!
+374 [SPEC_2_WFS]	2	Konczy brac szkielet!
+375 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 1!
+376 [SPEC_2_RESSURECT]	2	Wysyla RREADY do 3!
+377 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 1!
+378 [SPEC_2_RESSURECT]	2	Otrzymuje RREADY od 3!
+378 [SPEC_2_RESSURECT]	2	Zaczyna wskrzeszanie!
+378 [SPEC_2_RESSURECT]	2	Konczy wskrzeszanie!
+379 [SPEC_2_WFS2REQ]	2	Wysyla MREQ2!
+[EMPLOYER_BM]	0	Wyslano MISSION!
+369 [SPEC_3_WFS3REQ]	3	Odebral S3REQ!
+370 [SPEC_3_WFS3REQ]	3	Wysyla MTAK3 zabiera proces 2!
+371 [SPEC_3_RTR]	3	Wysyla TREADY do 2!
+373 [SPEC_3_WFSTREDY]	3	Odebral FTREADY (1 2 3)!
+374 [SPEC_3_PFR]	3	Wysyla RREADY do 1!
+374 [SPEC_3_PFR]	3	Wysyla RREADY do 2!
+377 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 2!
+378 [SPEC_3_RESSURECT]	3	Otrzymal RREADY od 1!
+378 [SPEC_3_RESSURECT]	3	Zaczyna wskrzeszanie!
+378 [SPEC_3_RESSURECT]	3	Konczy wskrzeszanie!
+379 [SPEC_3_WFS3REQ]	3	Wysyla MREQ3!
+363 [SPEC_1_WFM]	1 0 0	Otrzymal MISSION od 0!
+364 [SPEC_1_WFM]	1	Wysyla MTAK1!
+365 [SPEC_1_WFS2]	1	Wysyla S2REQ!
+373 [SPEC_1_WFT]	1	Otrzymuje TREADY od 2 (1 2 3)!
+374 [SPEC_1_WFTABLE]	1	Wysyla TREQ!
+375 [SPEC_1_WFTABLE]	1	Bierze stol!
+375 [SPEC_1_WFTABLE]	1	Zaczyna pap. robote!
+375 [SPEC_1_WFTABLE]	1	Konczy pap. robote!
+376 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 2!
+377 [SPEC_1_RESSURECT]	1	Wysyla RREADY do 3!
+378 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 2!
+379 [SPEC_1_RESSURECT]	1	Otrzymuje RREADY od 3!
+379 [SPEC_1_RESSURECT]	1	Zaczyna wskrzeszanie!
+379 [SPEC_1_RESSURECT]	1	Konczy wskrzeszanie!
+380 [SPEC_1_WFM]	1	Wysyla MREQ1!
