@@ -8,13 +8,12 @@ public:
     bool* wake_up;
 
     sleeper(bool* wake_up){
-        &this->wake_up = &wake_up;
+        this->wake_up = wake_up;
     }
 
     void *worker(void){
-        *wake_up = false;
         sleep(3);
-        *wake_up = true;
+        *wake_up = false;
     }
 
     static void *worker_helper(void *context){
