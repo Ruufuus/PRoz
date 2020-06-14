@@ -12,7 +12,7 @@ public:
     }
 
     static void worker(bool * wake_up_){
-        sleep(5);
+        //sleep(3);
         *wake_up_ = !*wake_up_;
     }
 

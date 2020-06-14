@@ -1,5 +1,6 @@
 #include "constants.h"
 class Employer: public Thread{
+
     public:
     Employer(){
         srand(time(NULL));
