@@ -147,7 +147,9 @@ class Specialist_2: public Thread{
 
         int wait_for_skeleton(int rready_counter){
         int * ack_list = new int [process_count];
+        int * queue = new int [process_count];
         memset(ack_list,0,sizeof(int)*process_count);
+        memset(queue,0,sizeof(int)*process_count);
         bool * is_skeleton = new bool;
         *is_skeleton = true;
         int skack_count = 0;
@@ -198,7 +200,10 @@ class Specialist_2: public Thread{
                         MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, SKACK ,MPI_COMM_WORLD);
                     }else{
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                        queue[status.MPI_SOURCE] = 1;
                     }
+                }else{
+                        queue[status.MPI_SOURCE] = 1;
                 }
             }else if(status.MPI_TAG == S2REQ){
                 this->process_list[status.MPI_SOURCE]+=1;
@@ -217,10 +222,12 @@ class Specialist_2: public Thread{
         }
         for(int i = 0; i<process_count; i++){
             if(process_id == i) continue;
+            if(queue[i])
             MPI_Send(&message, 1, MPI_INT, i, SKACK ,MPI_COMM_WORLD);
         }
         if(DEBUG)printf("%d [SPEC_2_WFS]\t%d\tKonczy brac szkielet!\n", this->data.lamport_clock_value,this->process_id);
         free(is_skeleton);
+        free(queue);
         return rready_count;
     }
 

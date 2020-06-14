@@ -129,7 +129,9 @@ class Specialist_1: public Thread{
 
         int wait_for_table(int rready_counter){
         int * ack_list = new int [process_count];
+        int * queue = new int [process_count];
         memset(ack_list,0,sizeof(int)*process_count);
+        memset(queue,0,sizeof(int)*process_count);
         bool * is_table = new bool;
         * is_table = true;
         int tack_count = 0;
@@ -177,7 +179,10 @@ class Specialist_1: public Thread{
                     }else{
                         if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tLAMP: %d Otrzymuje TREQ od %d LAMP: %d!\n",this->data.lamport_clock_value,this->process_id, this->data.lamport_clock_value, status.MPI_SOURCE, message_buffor[0]);
                         this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
+                        queue[status.MPI_SOURCE] = 1;
                     }
+                }else{
+                    queue[status.MPI_SOURCE] = 1;
                 }
             }else if(status.MPI_TAG == MISSION){this->data.mission_unassigned+=1;
                 this->data.lamport_clock_value = std::max(this->data.lamport_clock_value,message_buffor[0])+1;
@@ -195,10 +200,12 @@ class Specialist_1: public Thread{
         }
         for(int i = 0; i<process_count; i++){
             if(process_id == i) continue;
+            if(queue[i])
             MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);
         }
         if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tKonczy pap. robote!\n",this->data.lamport_clock_value,this->process_id);
         free(is_table);
+        free(queue);
         return rready_count;
     }
 
