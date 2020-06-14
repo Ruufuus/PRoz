@@ -42,7 +42,7 @@ class Specialist_2: public Thread{
                         }
                     }
                     if(is_free)break;
-                    if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tBrak specjalistow nr1!\n",this->process_id);
+                    //if(DEBUG)printf("[SPEC_2_WFS2REQ]\t%d\tBrak specjalistow nr1!\n",this->process_id);
                     
                 }
                 MPI_Status status;
@@ -242,7 +242,7 @@ class Specialist_2: public Thread{
             int team_ready_counter = rready_count;
             bool interrupt = true;
             while(!*is_team_ready){
-                if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\t!rrcounter = %d\n", this->data.lamport_clock_value,this->process_id,team_ready_counter);    
+                //if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\t!rrcounter = %d\n", this->data.lamport_clock_value,this->process_id,team_ready_counter);    
                 if(team_ready_counter == 2 && interrupt)
                 {
                     if(DEBUG)printf("%d [SPEC_2_RESSURECT]\t%d\tZaczyna wskrzeszanie!\n", this->data.lamport_clock_value,this->process_id);
