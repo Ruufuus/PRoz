@@ -15,7 +15,7 @@ class Specialist_1: public Thread{
             int message = this->data.lamport_clock_value;
             int message_buffor[4];
             if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MREQ1!\n", this->data.lamport_clock_value,this->process_id);
-            for(int i = 0; i<process_count; i++){
+            for(int i = this->data.employer_count; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, MREQ1 ,MPI_COMM_WORLD);
             }
@@ -27,7 +27,7 @@ class Specialist_1: public Thread{
                     this->data.lamport_clock_value+=1;
                     message = this->data.lamport_clock_value;
                     if(DEBUG)printf("%d [SPEC_1_WFM]\t%d\tWysyla MTAK1!\n",this->data.lamport_clock_value,this->process_id);
-                    for(int i = 0; i<process_count; i++){
+                    for(int i = this->data.employer_count; i<process_count; i++){
                         if(process_id == i) continue;
                         MPI_Send(&message, 1, MPI_INT, i, MTAK1 ,MPI_COMM_WORLD);
                     }
@@ -80,7 +80,7 @@ class Specialist_1: public Thread{
             this->data.lamport_clock_value+=1;
             int message[2] = {this->data.lamport_clock_value, this->process_id};
             if(DEBUG)printf("%d [SPEC_1_WFS2]\t%d\tWysyla S2REQ!\n",this->data.lamport_clock_value,this->process_id);
-            for(int i = 0; i<process_count; i++){
+            for(int i = this->data.employer_count; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 2, MPI_INT, i, S2REQ ,MPI_COMM_WORLD);
             }
@@ -140,7 +140,7 @@ class Specialist_1: public Thread{
         int message = ++this->data.lamport_clock_value;
         int message_buffor[4];
         if(DEBUG)printf("%d [SPEC_1_WFTABLE]\t%d\tWysyla TREQ!\n", this->data.lamport_clock_value,this->process_id);
-        for(int i = 0; i<process_count; i++){
+        for(int i = this->data.employer_count; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send(&message, 1, MPI_INT, i, TREQ ,MPI_COMM_WORLD);
             }
@@ -198,7 +198,7 @@ class Specialist_1: public Thread{
                 MPI_Send(&message, 1, MPI_INT, status.MPI_SOURCE, MACK1 ,MPI_COMM_WORLD);
             }
         }
-        for(int i = 0; i<process_count; i++){
+        for(int i = this->data.employer_count; i<process_count; i++){
             if(process_id == i) continue;
             if(queue[i])
             MPI_Send(&message, 1, MPI_INT, i, TACK ,MPI_COMM_WORLD);

@@ -43,6 +43,7 @@ int main(int argc, char *argv[]){
         employee.process_lifetime();
     }else{
         specialist spec;
+        spec.employer_count = employer_count;
         spec.lamport_clock_value = 0;
         spec.mission_unassigned = 0;
         spec.initial_skeleton_count = skeleton_count;

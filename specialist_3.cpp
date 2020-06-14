@@ -18,7 +18,7 @@ class Specialist_3: public Thread {
             int message_buffor[4];
             int request_priority = this->data.lamport_clock_value;
             if(DEBUG)printf("%d [SPEC_3_WFS3REQ]\t%d\tWysyla MREQ3!\n", this->data.lamport_clock_value,this->process_id);
-            for(int i = 0; i<process_count; i++){
+            for(int i = this->data.employer_count; i<process_count; i++){
                 if(process_id == i) continue;
                 MPI_Send( &message, 1, MPI_INT, i, MREQ3, MPI_COMM_WORLD);
             }
@@ -39,7 +39,7 @@ class Specialist_3: public Thread {
                             
                             message_tak[0] = this->data.lamport_clock_value;
                             message_tak[1] = i;
-                            for(int i = 0; i<process_count; i++){
+                            for(int i = this->data.employer_count; i<process_count; i++){
                                 if(process_id == i) continue;
                                 MPI_Send(&message_tak, 2, MPI_INT, i, MTAK3 ,MPI_COMM_WORLD);
                             }

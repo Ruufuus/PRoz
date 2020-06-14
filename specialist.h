@@ -7,4 +7,5 @@ struct specialist {
 	int lamport_clock_value;
 	int team_ids[3];
 	int mission_unassigned;
+	int employer_count;
 };
